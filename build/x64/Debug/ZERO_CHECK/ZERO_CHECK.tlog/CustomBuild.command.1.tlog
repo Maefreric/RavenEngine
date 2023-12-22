@@ -1,0 +1,10 @@
+^D:\RAVENENGINEPROJECT\RAVENENGINE\BUILD\CMAKEFILES\9FBD38D36A0C0FE0BC9D5BBDE400E606\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/RavenEngineProject/RavenEngine -BD:/RavenEngineProject/RavenEngine/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/RavenEngineProject/RavenEngine/build/RavenEngine.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
