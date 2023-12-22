@@ -4,6 +4,24 @@
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\WindowManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\MenuSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\ImGuiSetup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_opengl3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -19,17 +37,33 @@
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_opengl3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\RavenEngineProject\RavenEngine\include\WindowManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\RavenEngineProject\RavenEngine\include\MenuSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\RavenEngineProject\RavenEngine\include\ImGuiSetup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\RavenEngineProject\RavenEngine\include\ResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\RavenEngineProject\RavenEngine\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="D:\RavenEngineProject\RavenEngine\resources.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{36EFAFC0-BEAF-3EAD-BF35-869AC8C69163}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{32CE2652-92A6-3D24-B326-3581828F1540}</UniqueIdentifier>
     </Filter>

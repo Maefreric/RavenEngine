@@ -2,6 +2,7 @@
 C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCInformation.cmake
 C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCXXInformation.cmake
 C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeDependentOption.cmake
 C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeGenericSystem.cmake
 C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake
 C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake
@@ -26,6 +27,7 @@ C:/src/vcpkg/installed/x64-windows/share/glfw3/glfw3ConfigVersion.cmake
 C:/src/vcpkg/installed/x64-windows/share/glfw3/glfw3Targets-debug.cmake
 C:/src/vcpkg/installed/x64-windows/share/glfw3/glfw3Targets-release.cmake
 C:/src/vcpkg/installed/x64-windows/share/glfw3/glfw3Targets.cmake
+C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake
 D:/RavenEngineProject/RavenEngine/CMakeLists.txt
 D:/RavenEngineProject/RavenEngine/build/CMakeFiles/3.28.1/CMakeCCompiler.cmake
 D:/RavenEngineProject/RavenEngine/build/CMakeFiles/3.28.1/CMakeCXXCompiler.cmake

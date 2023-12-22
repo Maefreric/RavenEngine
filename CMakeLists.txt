@@ -5,19 +5,44 @@ project(RavenEngine)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(OpenGL REQUIRED)
 
-# Add the ImGui directory to your include paths
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/libs/imgui")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/libs/imgui/backends")
+# Set the include directories for your project
+include_directories(
+    "${CMAKE_CURRENT_SOURCE_DIR}/include"
+    "${CMAKE_CURRENT_SOURCE_DIR}/libs/imgui"
+    "${CMAKE_CURRENT_SOURCE_DIR}/libs/imgui/backends"
+)
 
-# Add all the Dear ImGui source files and the specific backends you want to compile
-file(GLOB IMGUI_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/libs/imgui/*.cpp")
-set(IMGUI_BACKENDS
+# Glob all the ImGui source files
+file(GLOB IMGUI_SOURCES 
+    "${CMAKE_CURRENT_SOURCE_DIR}/libs/imgui/*.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/libs/imgui/backends/imgui_impl_glfw.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/libs/imgui/backends/imgui_impl_opengl3.cpp"
 )
 
-# Add your main.cpp file from the "src" directory and the ImGui source files to the executable
-add_executable(RavenEngine src/main.cpp ${IMGUI_SOURCES} ${IMGUI_BACKENDS})
+# Define all the source files for your project
+set(PROJECT_SOURCES
+    src/main.cpp
+    src/WindowManager.cpp
+    src/MenuSystem.cpp
+    src/ImGuiSetup.cpp
+    src/ResourceManager.cpp
+    resources.rc # Assuming resources.rc is in the project root directory
+)
+
+# Define all the header files for your project
+set(PROJECT_HEADERS
+    include/WindowManager.h
+    include/MenuSystem.h
+    include/ImGuiSetup.h
+    include/ResourceManager.h
+)
+
+# Add executable target with the source and header files
+add_executable(RavenEngine 
+    ${PROJECT_SOURCES} 
+    ${IMGUI_SOURCES} 
+    ${PROJECT_HEADERS}
+)
 
 # Link your executable with the GLFW library and OpenGL (required by ImGui)
 target_link_libraries(RavenEngine PRIVATE glfw OpenGL::GL)
