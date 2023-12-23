@@ -1,0 +1,32 @@
+- .vscode/
+    - settings.json
+    - tasks.json
+    - c_cpp_properties.json
+- CMakeLists.txt
+- Assets/
+    - RavenLogoImgs/
+- src/
+    - main.cpp
+    - WindowManager.cpp
+    - MenuSystem.cpp
+    - ImGuiSetup.cpp
+    - ResourceManager.cpp
+- resources.rc
+- libs/
+    - imgui/
+- bin/
+- include/
+    - WindowManager.h
+    - MenuSystem.h
+    - ImGuiSetup.h
+    - ResourceManager.h
+- build/
+    - CMakeFiles/
+    - CMakeCache.txt
+    - ZERO_CHECK.vcxproj
+    - ZERO_CHECK.vcxproj.filters
+    - RavenEngine.vcxproj
+    - RavenEngine.vcxproj.filters
+    - ALL_BUILD.vcxproj
+    - ALL_BUILD.vcxproj.filters
+- fileStructure.md

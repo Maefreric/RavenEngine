@@ -1,20 +1,23 @@
-#include "ResourceManager.h"
+#include <Windows.h>
 #define GLFW_EXPOSE_NATIVE_WIN32
-#include <GLFW/glfw3native.h> // Ensure this is included after ResourceManager.h
+#include <GLFW/glfw3.h>
+#include <GLFW/glfw3native.h>
+#include "ResourceManager.h"
+#include <iostream>
 
 HICON ResourceManager::smallIcon = nullptr; // Static member variable to store the small icon
 HICON ResourceManager::largeIcon = nullptr; // Static member variable to store the large icon
 
-void ResourceManager::LoadIcon(const char* iconPath16, const char* iconPath32) {
+void ResourceManager::LoadIcon(GLFWwindow* window, LPCWSTR iconPath16, LPCWSTR iconPath32) {
     // Load the small icon from the specified file path and store it in the smallIcon variable
-    smallIcon = (HICON)LoadImage(nullptr, iconPath16, IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
+    smallIcon = (HICON)LoadImageW(nullptr, iconPath16, IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
     if (smallIcon == nullptr) {
         // Handle the error (e.g., log an error message or throw an exception)
         // You can add your error handling code here
     }
     
     // Load the large icon from the specified file path and store it in the largeIcon variable
-    largeIcon = (HICON)LoadImage(nullptr, iconPath32, IMAGE_ICON, 32, 32, LR_LOADFROMFILE);
+    largeIcon = (HICON)LoadImageW(nullptr, iconPath32, IMAGE_ICON, 32, 32, LR_LOADFROMFILE);
     if (largeIcon == nullptr) {
         // Handle the error (e.g., log an error message or throw an exception)
         // You can add your error handling code here

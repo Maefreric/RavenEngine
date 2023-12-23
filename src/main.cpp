@@ -18,8 +18,12 @@ int main() {
     windowManager.setWindowProperties(window);
     
     // Load and set window icons using the ResourceManager
-    ResourceManager::LoadIcon("D:\\RavenEngineProject\\RavenEngine\\Assets\\RavenLogoImgs\\raven16x16.ico", 
-                              "D:\\RavenEngineProject\\RavenEngine\\Assets\\RavenLogoImgs\\ravenICO32x32.ico");
+    ResourceManager::LoadIcon(
+        window,
+        L"D:\\RavenEngineProject\\RavenEngine\\Assets\\RavenLogoImgs\\raven16x16.ico",
+        L"D:\\RavenEngineProject\\RavenEngine\\Assets\\RavenLogoImgs\\ravenICO32x32.ico"
+    );
+    
     ResourceManager::SetWindowIcons(window);
 
     // Initialize Dear ImGui context

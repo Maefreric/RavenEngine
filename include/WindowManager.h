@@ -5,6 +5,8 @@
 
 class WindowManager {
 public:
+    static GLFWwindow* window; // Add this line
+
     /**
      * @brief Constructs a new WindowManager object.
      */

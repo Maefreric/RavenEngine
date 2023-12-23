@@ -2,8 +2,11 @@
 #include <iostream>
 #include <stdexcept>
 
+// Initialize the static member variable
+GLFWwindow* WindowManager::window = nullptr;
+
 // Constructor
-WindowManager::WindowManager() : window(nullptr) {
+WindowManager::WindowManager() {
     if (!glfwInit()) {
         throw std::runtime_error("Failed to initialize GLFW");
     }
@@ -19,17 +22,17 @@ GLFWwindow* WindowManager::createWindow(int width, int height, const char* title
     // Set window hints
     glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
     glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
-    
+
     // Create the GLFW window
     window = glfwCreateWindow(width, height, title, nullptr, nullptr);
     if (!window) {
         glfwTerminate();
         throw std::runtime_error("Failed to create GLFW window");
     }
-    
+
     // Make the GLFW window the current context
     glfwMakeContextCurrent(window);
-    
+
     return window;
 }
 
@@ -37,7 +40,7 @@ GLFWwindow* WindowManager::createWindow(int width, int height, const char* title
 void WindowManager::setWindowProperties(GLFWwindow* window) {
     glfwSetWindowSizeLimits(window, 800, 600, GLFW_DONT_CARE, GLFW_DONT_CARE);
     glfwSetWindowOpacity(window, 0.95f);
-    glfwSetKeyCallback(window, WindowManager::keyCallback);
+    glfwSetKeyCallback(window, keyCallback);
 }
 
 // Key callback function to handle key events

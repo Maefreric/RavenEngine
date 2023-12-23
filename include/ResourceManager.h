@@ -13,7 +13,7 @@ public:
      * @param iconPath16 The file path of the 16x16 icon.
      * @param iconPath32 The file path of the 32x32 icon.
      */
-    static void LoadIcon(GLFWwindow* window, const char* iconPath16, const char* iconPath32);
+    static void LoadIcon(GLFWwindow* window, LPCWSTR iconPath16, LPCWSTR iconPath32);
 
     /**
      * @brief Sets the loaded window icons for the specified GLFW window.
