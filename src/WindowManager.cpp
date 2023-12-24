@@ -39,7 +39,6 @@ GLFWwindow* WindowManager::createWindow(int width, int height, const char* title
 // Set window properties such as size limits, opacity, and key callback
 void WindowManager::setWindowProperties(GLFWwindow* window) {
     glfwSetWindowSizeLimits(window, 800, 600, GLFW_DONT_CARE, GLFW_DONT_CARE);
-    glfwSetWindowOpacity(window, 0.95f);
     glfwSetKeyCallback(window, keyCallback);
 }
 

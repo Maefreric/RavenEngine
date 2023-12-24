@@ -3,6 +3,7 @@
 #include "MenuSystem.h"
 #include "ImGuiSetup.h"
 #include "ResourceManager.h"
+#include "imgui.h"
 
 int main() {
     // Create an instance of WindowManager
@@ -21,7 +22,7 @@ int main() {
     ResourceManager::LoadIcon(
         window,
         L"D:\\RavenEngineProject\\RavenEngine\\Assets\\RavenLogoImgs\\raven16x16.ico",
-        L"D:\\RavenEngineProject\\RavenEngine\\Assets\\RavenLogoImgs\\ravenICO32x32.ico"
+        L"D:\\RavenEngineProject\\RavenEngine\\Assets\\RavenLogoImgs\\raven32x32.ico"
     );
     
     ResourceManager::SetWindowIcons(window);
@@ -29,17 +30,20 @@ int main() {
     // Initialize Dear ImGui context
     ImGuiSetup::Init(window);
 
-    // Main loop
     while (!glfwWindowShouldClose(window)) {
         // Process events
         glfwPollEvents();
         
+        // Clear the screen
+        glClearColor(24.0f / 255.0f, 24.0f / 255.0f, 24.0f / 255.0f, 1.0f); // Set clear color to a dark gray
+        glClear(GL_COLOR_BUFFER_BIT); // Clear the buffer to the set color
+
         // Start a new Dear ImGui frame
         ImGuiSetup::NewFrame();
-        
+
         // Create the main menu using the MenuSystem
         menuSystem.createMainMenu(window);
-        
+
         // Render Dear ImGui
         ImGuiSetup::Render();
         
