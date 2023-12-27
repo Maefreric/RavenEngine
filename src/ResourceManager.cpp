@@ -9,19 +9,9 @@ HICON ResourceManager::smallIcon = nullptr; // Static member variable to store t
 HICON ResourceManager::largeIcon = nullptr; // Static member variable to store the large icon
 
 void ResourceManager::LoadIcon(GLFWwindow* window, LPCWSTR iconPath16, LPCWSTR iconPath32) {
-    // Load the small icon from the specified file path and store it in the smallIcon variable
     smallIcon = (HICON)LoadImageW(nullptr, iconPath16, IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
-    if (smallIcon == nullptr) {
-        // Handle the error (e.g., log an error message or throw an exception)
-        // You can add your error handling code here
-    }
-    
-    // Load the large icon from the specified file path and store it in the largeIcon variable
     largeIcon = (HICON)LoadImageW(nullptr, iconPath32, IMAGE_ICON, 32, 32, LR_LOADFROMFILE);
-    if (largeIcon == nullptr) {
-        // Handle the error (e.g., log an error message or throw an exception)
-        // You can add your error handling code here
-    }
+    
 }
 
 void ResourceManager::SetWindowIcons(GLFWwindow* window) {

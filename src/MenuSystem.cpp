@@ -1,13 +1,15 @@
 #include "MenuSystem.h"
+#include "Doodle.h"
 #include "imgui.h"
 #include <Windows.h>
 #include <iostream>
 #define GLFW_EXPOSE_NATIVE_WIN32 // Define this before including glfw3native.h
 #include <GLFW/glfw3native.h> // Include the native access header
 #include <GLFW/glfw3.h>
+#include "DoodleManager.h"
 
 MenuSystem::MenuSystem() {
-    // Constructor logic if necessary
+    //some shit in here constructor implementation i suppose
 }
 
 bool MenuSystem::OpenFileDialog(char* selectedFile, int bufferSize, GLFWwindow* ownerWindow) {
@@ -39,7 +41,7 @@ bool MenuSystem::OpenFileDialog(char* selectedFile, int bufferSize, GLFWwindow* 
     }
 }
 
-void MenuSystem::createMainMenu(GLFWwindow* window) {
+void MenuSystem::createMainMenu(GLFWwindow* window, DoodleManager& doodleManager) {
     static bool openFileClicked = false;
 
     if (ImGui::BeginMainMenuBar()) {
@@ -49,6 +51,9 @@ void MenuSystem::createMainMenu(GLFWwindow* window) {
             }
             if (ImGui::MenuItem("Open")) {
                 openFileClicked = true;
+            }
+            if (ImGui::MenuItem("Doodle")) {
+                doodleManager.CreateNewDoodle(window); // Pass the window argument here
             }
             if (ImGui::MenuItem("Save")) {
                 // Save code
@@ -74,3 +79,6 @@ void MenuSystem::createMainMenu(GLFWwindow* window) {
     }
 }
 
+std::vector<Doodle>& MenuSystem::getDoodleWindows() {
+    return doodleWindows;
+}

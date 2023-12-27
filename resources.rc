@@ -1,2 +1,2 @@
-IDI_APPFAVI ICON "Assets\\RavenLogoImgs\\raven16x16.ico"
-IDI_APPFAVILARGE ICON "Assets\\RavenLogoImgs\\raven32x32.ico"
+IDI_APPFAVI ICON "src/Assets/raven16x16.ico"
+IDI_APPFAVILARGE ICON "src/Assets/raven32x32.ico"

@@ -1,5 +1,6 @@
 d:\ravenengineproject\ravenengine\build\cmakefiles\generate.stamp
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\vc143.pdb
+d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\doodle.obj
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\imgui_widgets.obj
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\imgui_tables.obj
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\imgui_draw.obj
@@ -12,8 +13,10 @@ d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\imguisetup.obj
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\menusystem.obj
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\windowmanager.obj
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\main.obj
-d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\resources.res
+d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\doodlemanager.obj
 d:\ravenengineproject\ravenengine\build\debug\ravenengine.exe
+d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.ilk
+d:\ravenengineproject\ravenengine\build\debug\ravenengine.pdb
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\custombuild.command.1.tlog
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\custombuild.read.1.tlog
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\custombuild.write.1.tlog
@@ -23,6 +26,7 @@ d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\c
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\rc.read.1.tlog
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\rc.write.1.tlog
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\rc.command.1.tlog
-d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\link.read.1.tlog
+d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\link.read.3.tlog
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\link.write.1.tlog
 d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\link.command.1.tlog
+d:\ravenengineproject\ravenengine\build\ravenengine.dir\debug\ravenengine.tlog\cl.items.tlog

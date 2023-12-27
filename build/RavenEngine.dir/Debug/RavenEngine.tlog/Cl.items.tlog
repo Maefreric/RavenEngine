@@ -3,6 +3,8 @@ D:\RavenEngineProject\RavenEngine\src\WindowManager.cpp;D:\RavenEngineProject\Ra
 D:\RavenEngineProject\RavenEngine\src\MenuSystem.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\MenuSystem.obj
 D:\RavenEngineProject\RavenEngine\src\ImGuiSetup.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\ImGuiSetup.obj
 D:\RavenEngineProject\RavenEngine\src\ResourceManager.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\ResourceManager.obj
+D:\RavenEngineProject\RavenEngine\Components\Doodle\Doodle.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\Doodle.obj
+D:\RavenEngineProject\RavenEngine\Components\Doodle\DoodleManager.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\DoodleManager.obj
 D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\imgui_impl_glfw.obj
 D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_opengl3.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\imgui_impl_opengl3.obj
 D:\RavenEngineProject\RavenEngine\libs\imgui\imgui.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\imgui.obj
