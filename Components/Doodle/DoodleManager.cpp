@@ -25,10 +25,17 @@ void DoodleManager::CreateNewDoodle(GLFWwindow* mainWin) {
 
 
 void DoodleManager::RenderDoodles() {
+    ImGuiStyle& style = ImGui::GetStyle();
+    style.Colors[ImGuiCol_TitleBgActive] = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f);
+
     for (auto it = doodleWindows.begin(); it != doodleWindows.end();) {
         Doodle* doodle = *it;
         if (doodle->IsWindowShown()) {
-            doodle->Render();
+            bool shouldRender = doodle->PreRender();  // Call PreRender to check whether Begin was successful
+            if (shouldRender) {
+                doodle->Render();
+            }
+            doodle->PostRender();  // Call PostRender to finalize with End, even if the window is collapsed
             ++it;
         } else {
             doodle->Close();
