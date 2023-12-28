@@ -7,6 +7,7 @@
 class DoodleManager {
 public:
     DoodleManager() = default;
+    ~DoodleManager();  // Add this line
 
     void CreateNewDoodle(GLFWwindow* window);
     void RenderDoodles();

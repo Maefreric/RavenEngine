@@ -15,7 +15,8 @@ public:
     void SetWindow(GLFWwindow* win); // Method to set the GLFW window
     bool IsWindowShown() const { return showWindow; }
     void Close();
-    void SetPosition(const ImVec2& pos) { windowPos = pos; }
+    void SetPosition(const ImVec2& pos);
+    static void ResetNextID() { nextID = 0; }
 
 private:
     static int nextID; // Static member to hold the next ID to assign
@@ -26,4 +27,6 @@ private:
     GLFWwindow* window; // GLFW window pointer
     bool showWindow = true; // Indicates if the Doodle window is shown
     ImVec2 windowPos;
+    ImVec2 initialPos;
+    bool firstRender = true;
 };

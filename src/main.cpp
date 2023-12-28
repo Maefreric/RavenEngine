@@ -70,8 +70,7 @@ int main() {
         menuSystem.createMainMenu(window, doodleManager); 
 
         // Render doodles
-        doodleManager.RenderDoodles();
-        RenderDoodles(doodleManager.GetDoodleWindows());    
+        doodleManager.RenderDoodles(); // Only this call is needed
 
         // Render Dear ImGui
         ImGuiSetup::Render();

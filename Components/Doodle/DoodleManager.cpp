@@ -4,28 +4,38 @@
 
 ImVec2 DoodleManager::lastWindowPos = ImVec2(0, 0);
 
-void DoodleManager::CreateNewDoodle(GLFWwindow* mainWin) {
-    std::cout << "Creating a new Doodle instance..." << std::endl;
-
-    // Dynamically allocate a new Doodle instance
-    Doodle* newDoodle = new Doodle(mainWin);
-    newDoodle->SetPosition(lastWindowPos);
-    lastWindowPos.x += 20;
-    lastWindowPos.y += 20;
-    doodleWindows.push_back(newDoodle);
-
-    std::cout << "New Doodle instance created. Total count: " << doodleWindows.size() << std::endl;
+DoodleManager::~DoodleManager() {
+    for (auto& doodle : doodleWindows) {
+        delete doodle;
+    }
+    doodleWindows.clear();
 }
 
+void DoodleManager::CreateNewDoodle(GLFWwindow* mainWin) {
+    Doodle* newDoodle = new Doodle(mainWin);
+    if (doodleWindows.empty()) {
+        lastWindowPos = ImVec2(200, 200); // Starting position for the first window
+    } else {
+        lastWindowPos.x += 30; // Cascading effect
+        lastWindowPos.y += 30;
+    }
+    newDoodle->SetPosition(lastWindowPos);
+    doodleWindows.push_back(newDoodle);
+}
+
+
 void DoodleManager::RenderDoodles() {
-    for (auto& doodle : doodleWindows) {
+    for (auto it = doodleWindows.begin(); it != doodleWindows.end();) {
+        Doodle* doodle = *it;
         if (doodle->IsWindowShown()) {
             doodle->Render();
+            ++it;
         } else {
             doodle->Close();
+            delete doodle;
+            it = doodleWindows.erase(it);
         }
     }
-
     // Delete Doodle instances that are no longer needed and remove them from the vector
     doodleWindows.erase(std::remove_if(doodleWindows.begin(), doodleWindows.end(),
                                        [](Doodle* d) {
@@ -36,6 +46,10 @@ void DoodleManager::RenderDoodles() {
                                            return false;
                                        }),
                         doodleWindows.end());
+    // If there are no Doodle windows, reset the next ID
+    if (doodleWindows.empty()) {
+        Doodle::ResetNextID();
+    }
 }
 
 std::vector<Doodle*>& DoodleManager::GetDoodleWindows() {
