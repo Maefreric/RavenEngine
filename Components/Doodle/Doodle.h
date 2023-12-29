@@ -6,13 +6,13 @@
 
 class Doodle {
 public:
-    Doodle(GLFWwindow* win); // Constructor that takes a GLFWwindow
-    ~Doodle(); // Destructor to clean up custom cursor
+    Doodle(GLFWwindow* win);
+    ~Doodle();
     GLFWwindow* GetWindow();
     void Render();
-    void DrawLines(ImVec2 itemRectMin); // Method to draw lines
+    void DrawLines(ImVec2 itemRectMin);
     void HandleDrawing();
-    void SetWindow(GLFWwindow* win); // Method to set the GLFW window
+    void SetWindow(GLFWwindow* win);
     bool IsWindowShown() const { return showWindow; }
     void Close();
     void SetPosition(const ImVec2& pos);
@@ -22,29 +22,32 @@ public:
     void ToggleChalkboardMode();
     void EraseLines(const ImVec2& eraseCenter);
     void AddPointToStroke(const ImVec2& point);
-    void UpdateCursorState();// Add this line
+    void UpdateCursorState();
     ImVec2 straightLineStart;
     bool isDrawingStraightLine = false;
 
 private:
-    static int nextID; // Static member to hold the next ID to assign
-    int id; // ID of this particular Doodle
+    static int nextID; 
+    int id; 
     ImVec2 canvasSize;
     std::vector<std::vector<ImVec2>> strokes;
-    GLFWcursor* customCursor = nullptr; // Custom cursor for drawing
-    GLFWcursor* eraseCursor = nullptr; // Custom cursor for erasing
-    GLFWwindow* window; // GLFW window pointer
-    bool showWindow = true; // Indicates if the Doodle window is shown
+    GLFWcursor* customCursor = nullptr;
+    GLFWcursor* eraseCursor = nullptr; 
+    GLFWwindow* window; 
+    bool showWindow = true; 
     ImVec2 windowPos;
     ImVec2 initialPos;
     bool firstRender = true;
-    GLFWcursor* currentCursor = nullptr; // Track the currently set cursor
-    void UpdateCursor(GLFWcursor* desiredCursor); // Method to update the cursor
-
-    // chalkboardMode, eraseMode and canvasColor are new
+    GLFWcursor* currentCursor = nullptr;
+    void UpdateCursor(GLFWcursor* desiredCursor);
+    ImGuiWindowFlags window_flags = ImGuiWindowFlags_None; // Single declaration
+    bool noResize = false;
     bool chalkboardMode = false;
-    bool eraseMode = false; // New variable for erase mode
-    ImU32 canvasColor = IM_COL32(245, 245, 220, 255); // Default paper color
-    ImU32 lineColor = IM_COL32(0, 0, 0, 255); // Default line color
+    bool eraseMode = false;
+    ImU32 canvasColor = IM_COL32(245, 245, 220, 255); 
+    ImU32 lineColor = IM_COL32(0, 0, 0, 255); 
     bool isDrawing = false;
+    bool lockCanvasSize = false; 
+    ImVec4 UserCustomBGColor = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); 
+    ImVec4 UserCustomLineColor = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
 };

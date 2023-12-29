@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <string>
+#include <chrono>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "../../libs/stb/stb_image.h"
@@ -48,6 +49,9 @@ void Doodle::SetPosition(const ImVec2& pos) {
     firstRender = true;
 }
 
+// Store the last time you logged
+std::chrono::steady_clock::time_point lastLogTime;
+
 bool Doodle::PreRender() {
     if (!showWindow) {
         return false;
@@ -63,7 +67,22 @@ bool Doodle::PreRender() {
     std::string windowTitle = "Doodle " + std::to_string(id);
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_TitleBarMove | ImGuiWindowFlags_NoScrollbar;
 
-    return ImGui::Begin(windowTitle.c_str(), &showWindow, window_flags);
+    // Get the current time
+    auto now = std::chrono::steady_clock::now();
+
+    // Check if at least 15 seconds have passed since the last log
+    if (std::chrono::duration_cast<std::chrono::seconds>(now - lastLogTime).count() >= 15) {
+        // Log the window flags
+        std::cout << "Current window flags before ImGui::Begin: " << window_flags << std::endl;
+
+        // Update the last log time
+        lastLogTime = now;
+    }
+
+    // Start the ImGui frame
+    ImGui::Begin(windowTitle.c_str(), &showWindow, window_flags);
+
+    return true; // Add this line
 }
 
 void Doodle::UpdateCursor(GLFWcursor* desiredCursor) {
@@ -85,7 +104,6 @@ void Doodle::UpdateCursorState() {
     }
 
     if (currentCursor != desiredCursor) {
-        std::cout << "Cursor Update: " << (eraseMode ? "Eraser" : "Pencil") << std::endl;
         glfwSetCursor(window, desiredCursor);
         currentCursor = desiredCursor;
     }
@@ -94,10 +112,6 @@ void Doodle::UpdateCursorState() {
 
 void Doodle::Render() {
     UpdateCursorState(); // First call
-
-    if (!PreRender()) {
-        return;
-    }
 
     if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(1, false)) {
         ImGui::OpenPopup("ContextMenu");
@@ -116,33 +130,114 @@ void Doodle::Render() {
             GLFWcursor* newCursor = eraseMode ? eraseCursor : customCursor;
             UpdateCursor(newCursor);
         }
+
+        ImGui::Separator();
+        
+        // Declare aspectRatio and window_flags
+        float aspectRatio = canvasSize.x / canvasSize.y;
+        ImGuiWindowFlags window_flags = 0; // or initialize with appropriate flags
+
+        // Size section
+        ImGui::Text("Size");
+
+        // Display the current canvas size
+        ImGui::Text("Current size: %.1f x %.1f", canvasSize.x, canvasSize.y);
+
+        // Use sliders to adjust the canvas size
+        static bool lockAspectRatio = false;
+        static bool noResize = false;
+        bool widthChanged = ImGui::SliderFloat("Width", &canvasSize.x, 20.0f, 1800.0f);
+        bool heightChanged = ImGui::SliderFloat("Height", &canvasSize.y, 20.0f, 1100.0f);
+
+        // If the aspect ratio is locked and one of the dimensions changed, adjust the other dimension
+        if (lockAspectRatio && (widthChanged || heightChanged)) {
+            if (widthChanged) {
+                canvasSize.y = canvasSize.x / aspectRatio;
+            } else if (heightChanged) {
+                canvasSize.x = canvasSize.y * aspectRatio;
+            }
+        }
+
+        // If the size changed, apply the changes to the ImGui window and canvas
+        if (widthChanged || heightChanged) {
+            // Apply the size changes to the ImGui window
+            ImGui::SetWindowSize(("Doodle " + std::to_string(id)).c_str(), ImVec2(canvasSize.x, canvasSize.y));
+        }
+
+        // Toggle buttons for aspect ratio locking and disabling resizing
+        ImGui::Checkbox("Lock Ratio", &lockAspectRatio);
+        if (ImGui::Checkbox("Disable Resizing", &noResize)) {
+            std::cout << "Disable Resizing toggled: " << (noResize ? "ON" : "OFF") << std::endl; // Debug message 1
+            if (noResize) {
+                window_flags |= ImGuiWindowFlags_NoResize;
+            } else {
+                window_flags &= ~ImGuiWindowFlags_NoResize;
+            }
+            std::cout << "Window flags updated: " << window_flags << std::endl; // Debug message 2
+        }
+
+        ImGui::Separator();
+
+        // Color section
+        ImGui::Text("Color");
+        if (ImGui::ColorEdit4("##Background", (float*)&this->UserCustomBGColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel)) {
+            std::cout << "Selected Canvas color: (" 
+                      << this->UserCustomBGColor.x << ", " 
+                      << this->UserCustomBGColor.y << ", " 
+                      << this->UserCustomBGColor.z << ", " 
+                      << this->UserCustomBGColor.w << ")" << std::endl;
+            // Update the canvas color
+            this->canvasColor = ImGui::ColorConvertFloat4ToU32(this->UserCustomBGColor);
+        }
+        ImGui::SameLine();
+        ImGui::Text("Canvas");
+
+        if (ImGui::ColorEdit4("##Line", (float*)&this->UserCustomLineColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel)) {
+            std::cout << "Selected line color: (" 
+                      << this->UserCustomLineColor.x << ", " 
+                      << this->UserCustomLineColor.y << ", " 
+                      << this->UserCustomLineColor.z << ", " 
+                      << this->UserCustomLineColor.w << ")" << std::endl;
+            // Update the line color
+            this->lineColor = ImGui::ColorConvertFloat4ToU32(this->UserCustomLineColor);
+        }
+        ImGui::SameLine();
+        ImGui::Text("Line");
+
+        ImGui::Separator();
+
+        // clear button
+        if (ImGui::Button("Clear")) {
+            strokes.clear();
+        }
+
         ImGui::EndPopup();
     }
 
+    // Use the color and size variables to modify the drawing behavior
     ImVec2 availableSize = ImGui::GetContentRegionAvail();
     if (availableSize.x > 0 && availableSize.y > 0) {
         ImGui::InvisibleButton("canvas", availableSize);
-
-        ImGui::GetWindowDrawList()->AddRectFilled(ImGui::GetItemRectMin(), ImGui::GetItemRectMax(), canvasColor);
+        ImGui::GetWindowDrawList()->AddRectFilled(ImGui::GetItemRectMin(), ImGui::GetItemRectMax(), this->canvasColor);
         HandleDrawing();
     }
 
     if (ImGui::IsItemClicked()) {
         ImGui::SetWindowFocus();
     }
+    
+    if (!PreRender()) {
+        return;
+    }
 
     PostRender();
 }
 
 void Doodle::ToggleChalkboardMode() {
-    chalkboardMode = !chalkboardMode;
-    if (chalkboardMode) {
-        canvasColor = IM_COL32(26, 32, 40, 255);
-        lineColor = IM_COL32(255, 255, 255, 255);
-    } else {
-        canvasColor = IM_COL32(245, 245, 220, 255);
-        lineColor = IM_COL32(0, 0, 0, 255);
-    }
+    this->chalkboardMode = !this->chalkboardMode;
+    // Update canvasColor and lineColor based on the mode
+    this->canvasColor = this->chalkboardMode ? IM_COL32(6, 26, 17, 255) : IM_COL32(245, 245, 220, 255);
+    this->lineColor = this->chalkboardMode ? IM_COL32(255, 255, 255, 255) : IM_COL32(0, 0, 0, 255);
 }
 
 void Doodle::PostRender() {

@@ -65,6 +65,8 @@ void MenuSystem::createMainMenu(GLFWwindow* window, DoodleManager& doodleManager
         }
         ImGui::EndMainMenuBar();
     }
+    // Get the height of the main menu bar
+    float MENU_BAR_HEIGHT = ImGui::GetFrameHeight();
 
     // Outside of any ImGui::Begin/End calls
     if (openFileClicked) {

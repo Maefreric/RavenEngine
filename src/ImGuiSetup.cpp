@@ -14,6 +14,23 @@ void ImGuiSetup::Init(GLFWwindow* window) {
     ImGui_ImplGlfw_InitForOpenGL(window, true); // Initialize ImGui GLFW bindings
     const char* glsl_version = "#version 150";
     ImGui_ImplOpenGL3_Init(glsl_version); // Initialize ImGui OpenGL3 bindings
+
+    // Change the default highlighted color
+    ImGuiStyle& style = ImGui::GetStyle();
+    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(1.0f, 0.0f, 0.0f, 1.0f); // Red
+    style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f); // Your brand color
+
+    // Set the colors for the color picker background and text
+    style.Colors[ImGuiCol_FrameBg] = ImVec4(0.0941f, 0.0941f, 0.0941f, 1.0f); // Dark grey background
+    style.Colors[ImGuiCol_Text] = ImVec4(0.9961f, 0.9961f, 0.9961f, 1.0f); // Almost white text
+
+    // Set the colors for hovered and active menu items
+    //the default bg state color is fine
+    // Your brand color for active menu item something like style.Colors[ImGuiCol_MenuItemActive] = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f);  but since menuitemactive isnt a thing we have to do it a different way
+    style.Colors[ImGuiCol_Header] = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f); // Dark purple for selected menu item
+    style.Colors[ImGuiCol_HeaderHovered] = ImVec4(0.2784f * 0.9f, 0.2392f * 0.9f, 0.2902f * 0.9f, 1.0f); // Darker purple for hovered menu item
+    style.Colors[ImGuiCol_HeaderActive] = ImVec4(0.2784f * 1.1f, 0.2392f * 1.1f, 0.2902f * 1.1f, 1.0f); // Lighter purple for selected menu item
+
 }
 
 void ImGuiSetup::NewFrame() {
