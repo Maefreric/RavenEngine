@@ -7,7 +7,6 @@
 #include "Doodle.h"
 #include "DoodleManager.h"
 
-
 void RenderDoodles(std::vector<Doodle*>& doodles) {
     for (auto& doodle : doodles) {
         if (doodle->IsWindowShown()) {
@@ -55,7 +54,6 @@ int main() {
     // Main loop
     while (!glfwWindowShouldClose(window)) {
 
-        
         // Process events
         glfwPollEvents();
         

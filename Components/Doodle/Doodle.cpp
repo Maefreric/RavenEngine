@@ -2,7 +2,6 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <string>
-#include <chrono>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "../../libs/stb/stb_image.h"
@@ -11,6 +10,8 @@ int Doodle::nextID = 0; // Initialize static ID counter
 
 Doodle::Doodle(GLFWwindow* win) : id(nextID++), canvasSize(200, 200), customCursor(nullptr), window(win), showWindow(true), firstRender(true), initialPos(ImVec2(200, 200)) {
     int cursorWidth, cursorHeight, cursorChannels;
+
+    // Load pencil cursor
     unsigned char* cursorPixels = stbi_load("../Components/Doodle/Assets/pencil.png",
                                             &cursorWidth, &cursorHeight, &cursorChannels, 4);
     if (cursorPixels) {
@@ -19,8 +20,6 @@ Doodle::Doodle(GLFWwindow* win) : id(nextID++), canvasSize(200, 200), customCurs
         stbi_image_free(cursorPixels);
         ImGuiIO& io = ImGui::GetIO();
         io.ConfigFlags |= ImGuiConfigFlags_NoMouseCursorChange;
-    } else {
-        std::cerr << "Failed to load cursor image" << std::endl;
     }
 
     // Load eraser cursor
@@ -30,8 +29,6 @@ Doodle::Doodle(GLFWwindow* win) : id(nextID++), canvasSize(200, 200), customCurs
         GLFWimage eraseCursorImage{cursorWidth, cursorHeight, eraseCursorPixels};
         eraseCursor = glfwCreateCursor(&eraseCursorImage, cursorWidth / 2, cursorHeight / 2);
         stbi_image_free(eraseCursorPixels);
-    } else {
-        std::cerr << "Failed to load eraser cursor image" << std::endl;
     }
 }
 
@@ -49,9 +46,6 @@ void Doodle::SetPosition(const ImVec2& pos) {
     firstRender = true;
 }
 
-// Store the last time you logged
-std::chrono::steady_clock::time_point lastLogTime;
-
 bool Doodle::PreRender() {
     if (!showWindow) {
         return false;
@@ -62,27 +56,13 @@ bool Doodle::PreRender() {
         ImGui::SetNextWindowPos(initialPos); // Initial window position
         firstRender = false;
     }
-
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
     std::string windowTitle = "Doodle " + std::to_string(id);
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_TitleBarMove | ImGuiWindowFlags_NoScrollbar;
 
-    // Get the current time
-    auto now = std::chrono::steady_clock::now();
-
-    // Check if at least 15 seconds have passed since the last log
-    if (std::chrono::duration_cast<std::chrono::seconds>(now - lastLogTime).count() >= 15) {
-        // Log the window flags
-        std::cout << "Current window flags before ImGui::Begin: " << window_flags << std::endl;
-
-        // Update the last log time
-        lastLogTime = now;
-    }
-
     // Start the ImGui frame
     ImGui::Begin(windowTitle.c_str(), &showWindow, window_flags);
-
-    return true; // Add this line
+    return true;
 }
 
 void Doodle::UpdateCursor(GLFWcursor* desiredCursor) {
@@ -103,41 +83,99 @@ void Doodle::UpdateCursorState() {
         desiredCursor = eraseMode ? eraseCursor : customCursor;
     }
 
-    if (currentCursor != desiredCursor) {
-        glfwSetCursor(window, desiredCursor);
-        currentCursor = desiredCursor;
-    }
+    UpdateCursor(desiredCursor); // Use the UpdateCursor method here
 }
 
-
 void Doodle::Render() {
-    UpdateCursorState(); // First call
+    UpdateCursorState();
 
+    // Right-click to open the context menu
     if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(1, false)) {
         ImGui::OpenPopup("ContextMenu");
     }
 
+    // Context menu
     if (ImGui::BeginPopup("ContextMenu")) {
+
+        // Toggle chalkboard mode/paper mode
         const char* menuItemLabel = chalkboardMode ? "Paper" : "Chalkboard";
         if (ImGui::MenuItem(menuItemLabel)) {
             ToggleChalkboardMode();
         }
         
-        ImGui::Separator();
+        ImGui::Separator(); // ########################################
 
+        // Toggle draw/erase mode
         if (ImGui::MenuItem(eraseMode ? "Draw" : "Erase")) {
             eraseMode = !eraseMode;
             GLFWcursor* newCursor = eraseMode ? eraseCursor : customCursor;
             UpdateCursor(newCursor);
         }
 
-        ImGui::Separator();
+        // ########################################
+        // ########################################
+
+        // When the user clicks "Clear", manually draw an overlay and open the modal popup
+        if (ImGui::Button("Clear")) {
+            // Calculate the overlay size and position based on the Doodle window
+            ImVec2 overlay_min = ImGui::GetWindowPos();
+            ImVec2 overlay_max = ImVec2(overlay_min.x + ImGui::GetWindowContentRegionMax().x,
+                                        overlay_min.y + ImGui::GetWindowContentRegionMax().y);
+
+            // Draw a semi-transparent rectangle over the Doodle window's area
+            ImGui::GetWindowDrawList()->AddRectFilled(overlay_min, overlay_max, IM_COL32(128, 128, 128, 128));
+
+            // Open the modal and set its position and size relative to the Doodle window
+            ImGui::SetNextWindowPos(overlay_min);
+            ImGui::SetNextWindowSize(ImVec2(ImGui::GetWindowContentRegionMax().x, ImGui::GetWindowHeight()));
+            ImGui::OpenPopup("Clear Canvas?");
+        }
+
+        // Define the modal popup
+        if (ImGui::BeginPopupModal("Clear Canvas?", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize)) {
+            // Get the width of the modal to center the text
+            float modal_width = ImGui::GetWindowSize().x;
+            
+            // Get the text size
+            const char* text = "Do you want to clear the canvas?";
+            ImVec2 text_size = ImGui::CalcTextSize(text);
+            
+            // Calculate the position to center the text and set the cursor position
+            ImGui::SetCursorPosX((modal_width - text_size.x) * 0.5f);
+            ImGui::TextWrapped(text);
+
+            ImGui::Spacing(); // Extra space before buttons
+
+            // Calculate button width for equal sizing and alignment
+            float buttonWidth = (modal_width - ImGui::GetStyle().ItemSpacing.x) * 0.5f;
+            
+            // Center the buttons by setting the cursor position
+            ImGui::SetCursorPosX((modal_width - 2 * buttonWidth - ImGui::GetStyle().ItemSpacing.x) * 0.5f);
+            
+            if (ImGui::Button("Yes", ImVec2(buttonWidth, 0))) {
+                strokes.clear();
+                ImGui::CloseCurrentPopup();
+            }
+
+            ImGui::SameLine();
+
+            if (ImGui::Button("No", ImVec2(buttonWidth, 0))) {
+                ImGui::CloseCurrentPopup();
+            }
+
+            ImGui::EndPopup();
+        }
+
+
+        ImGui::Separator(); // ########################################
         
-        // Declare aspectRatio and window_flags
+        // Size section
+
+        // Get the aspect ratio of the canvas
         float aspectRatio = canvasSize.x / canvasSize.y;
         ImGuiWindowFlags window_flags = 0; // or initialize with appropriate flags
 
-        // Size section
+        // Title for the size section
         ImGui::Text("Size");
 
         // Display the current canvas size
@@ -145,7 +183,6 @@ void Doodle::Render() {
 
         // Use sliders to adjust the canvas size
         static bool lockAspectRatio = false;
-        static bool noResize = false;
         bool widthChanged = ImGui::SliderFloat("Width", &canvasSize.x, 20.0f, 1800.0f);
         bool heightChanged = ImGui::SliderFloat("Height", &canvasSize.y, 20.0f, 1100.0f);
 
@@ -164,22 +201,16 @@ void Doodle::Render() {
             ImGui::SetWindowSize(("Doodle " + std::to_string(id)).c_str(), ImVec2(canvasSize.x, canvasSize.y));
         }
 
-        // Toggle buttons for aspect ratio locking and disabling resizing
+        // Toggle button for aspect ratio
         ImGui::Checkbox("Lock Ratio", &lockAspectRatio);
-        if (ImGui::Checkbox("Disable Resizing", &noResize)) {
-            std::cout << "Disable Resizing toggled: " << (noResize ? "ON" : "OFF") << std::endl; // Debug message 1
-            if (noResize) {
-                window_flags |= ImGuiWindowFlags_NoResize;
-            } else {
-                window_flags &= ~ImGuiWindowFlags_NoResize;
-            }
-            std::cout << "Window flags updated: " << window_flags << std::endl; // Debug message 2
-        }
 
-        ImGui::Separator();
+        ImGui::Separator(); // ########################################
 
         // Color section
-        ImGui::Text("Color");
+        // Title for the color section
+        ImGui::Text("Custom Color");
+
+        // color picker for the canvas
         if (ImGui::ColorEdit4("##Background", (float*)&this->UserCustomBGColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel)) {
             std::cout << "Selected Canvas color: (" 
                       << this->UserCustomBGColor.x << ", " 
@@ -191,7 +222,9 @@ void Doodle::Render() {
         }
         ImGui::SameLine();
         ImGui::Text("Canvas");
+        // ########################################
 
+        // color picker for the line
         if (ImGui::ColorEdit4("##Line", (float*)&this->UserCustomLineColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel)) {
             std::cout << "Selected line color: (" 
                       << this->UserCustomLineColor.x << ", " 
@@ -203,12 +236,13 @@ void Doodle::Render() {
         }
         ImGui::SameLine();
         ImGui::Text("Line");
+        // ########################################
 
-        ImGui::Separator();
+        ImGui::Separator(); // ########################################
 
-        // clear button
-        if (ImGui::Button("Clear")) {
-            strokes.clear();
+        // close button
+        if (ImGui::Button("Close")) {
+            showWindow = false;
         }
 
         ImGui::EndPopup();
@@ -222,14 +256,15 @@ void Doodle::Render() {
         HandleDrawing();
     }
 
+    // Set window focus when clicked
     if (ImGui::IsItemClicked()) {
         ImGui::SetWindowFocus();
     }
     
+    // Render the doodle
     if (!PreRender()) {
         return;
     }
-
     PostRender();
 }
 

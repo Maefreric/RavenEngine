@@ -5,6 +5,23 @@
 #include <iostream>
 
 void ImGuiSetup::Init(GLFWwindow* window) {
+
+    // ########      brand colors
+    // raven purpleA (default)
+    ImVec4 ravenPurpleA = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f);
+    // raven purpleB (darker)
+    ImVec4 ravenPurpleB = ImVec4(0.2784f * 0.9f, 0.2392f * 0.9f, 0.2902f * 0.9f, 1.0f);
+    // raven purpleC (lighter)
+    ImVec4 ravenPurpleC = ImVec4(0.2784f * 1.1f, 0.2392f * 1.1f, 0.2902f * 1.1f, 1.0f);
+    // raven black (#181818)
+    ImVec4 ravenBlack = ImVec4(0.0941f, 0.0941f, 0.0941f, 1.0f);
+    // raven white (#fefefe)
+    ImVec4 ravenWhite = ImVec4(0.9961f, 0.9961f, 0.9961f, 1.0f);
+    // raven red (#ff0000)
+    ImVec4 ravenRed = ImVec4(1.0f, 0.0f, 0.0f, 1.0f);
+
+    
+
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION(); // Check ImGui version
     ImGui::CreateContext(); // Create ImGui context
@@ -17,19 +34,27 @@ void ImGuiSetup::Init(GLFWwindow* window) {
 
     // Change the default highlighted color
     ImGuiStyle& style = ImGui::GetStyle();
-    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(1.0f, 0.0f, 0.0f, 1.0f); // Red
-    style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f); // Your brand color
+    style.Colors[ImGuiCol_ButtonHovered] = ravenRed; 
+    style.Colors[ImGuiCol_ButtonActive] = ravenPurpleA; 
+    style.Colors[ImGuiCol_FrameBg] = ravenBlack; 
+    style.Colors[ImGuiCol_Text] = ravenWhite; 
+    style.Colors[ImGuiCol_Header] = ravenPurpleA;
+    style.Colors[ImGuiCol_HeaderHovered] = ravenPurpleB;
+    style.Colors[ImGuiCol_HeaderActive] = ravenPurpleC;
+    style.Colors[ImGuiCol_SliderGrab] = ravenWhite;
+    style.Colors[ImGuiCol_SliderGrabActive] = ravenWhite;
+    style.Colors[ImGuiCol_CheckMark] = ravenWhite;
+    style.Colors[ImGuiCol_FrameBgHovered] = ravenPurpleB;
+    style.Colors[ImGuiCol_FrameBgActive] = ravenPurpleC;
+    style.Colors[ImGuiCol_Button] = ravenPurpleA;
+    style.Colors[ImGuiCol_ResizeGrip] = ravenPurpleA;
+    style.Colors[ImGuiCol_ResizeGripHovered] = ravenPurpleB;
+    style.Colors[ImGuiCol_ResizeGripActive] = ravenPurpleC;
+    style.Colors[ImGuiCol_CheckMark] = ravenPurpleA;
+    style.Colors[ImGuiCol_ScrollbarGrab] = ravenPurpleA;
+    style.Colors[ImGuiCol_ScrollbarGrabHovered] = ravenPurpleB;
+    style.Colors[ImGuiCol_ScrollbarGrabActive] = ravenPurpleC;
 
-    // Set the colors for the color picker background and text
-    style.Colors[ImGuiCol_FrameBg] = ImVec4(0.0941f, 0.0941f, 0.0941f, 1.0f); // Dark grey background
-    style.Colors[ImGuiCol_Text] = ImVec4(0.9961f, 0.9961f, 0.9961f, 1.0f); // Almost white text
-
-    // Set the colors for hovered and active menu items
-    //the default bg state color is fine
-    // Your brand color for active menu item something like style.Colors[ImGuiCol_MenuItemActive] = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f);  but since menuitemactive isnt a thing we have to do it a different way
-    style.Colors[ImGuiCol_Header] = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f); // Dark purple for selected menu item
-    style.Colors[ImGuiCol_HeaderHovered] = ImVec4(0.2784f * 0.9f, 0.2392f * 0.9f, 0.2902f * 0.9f, 1.0f); // Darker purple for hovered menu item
-    style.Colors[ImGuiCol_HeaderActive] = ImVec4(0.2784f * 1.1f, 0.2392f * 1.1f, 0.2902f * 1.1f, 1.0f); // Lighter purple for selected menu item
 
 }
 
