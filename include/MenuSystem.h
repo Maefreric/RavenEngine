@@ -3,25 +3,23 @@
 
 // Add the include path for GLFW
 #include <GLFW/glfw3.h>
-#include "Doodle.h" // Include the Doodle header
 #include <vector> // Include the vector header
-#include "DoodleManager.h" // Include the DoodleManager header
+#include "Workspace.h"
 
 class MenuSystem {
 public:
     // Constructor
-    MenuSystem();
+    MenuSystem(Workspace& workspace);
 
     // Method to create the main menu bar
-    void createMainMenu(GLFWwindow* window, DoodleManager& doodleManager);
+    void createMainMenu(GLFWwindow* window);
 
     // Declare the OpenFileDialog function as a member function
     bool OpenFileDialog(char* selectedFile, int bufferSize, GLFWwindow* ownerWindow);
 
-    std::vector<Doodle>& getDoodleWindows();
-
 private:
-    std::vector<Doodle> doodleWindows;
+    Workspace& workspace;
+    
 };
 
 #endif // MENU_SYSTEM_H

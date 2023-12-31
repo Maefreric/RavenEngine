@@ -8,7 +8,8 @@
 
 int Doodle::nextID = 0; // Initialize static ID counter
 
-Doodle::Doodle(GLFWwindow* win) : id(nextID++), canvasSize(200, 200), customCursor(nullptr), window(win), showWindow(true), firstRender(true), initialPos(ImVec2(200, 200)) {
+Doodle::Doodle(int x, int y, Workspace& workspace, GLFWwindow* win)
+    : Component(x, y, workspace), window(win), id(nextID++) {
     int cursorWidth, cursorHeight, cursorChannels;
 
     // Load pencil cursor
@@ -87,14 +88,24 @@ void Doodle::UpdateCursorState() {
 }
 
 void Doodle::Render() {
+    if (!PreRender()) {// If PreRender returns false, skip rendering
+        return; 
+    }
+    if (ImGui::IsItemClicked()) { // Set window focus when clicked
+        ImGui::SetWindowFocus();
+    }
     UpdateCursorState();
+    RenderContextMenu();
+    RenderCanvas();
+    HandleDrawing();
+    PostRender();
+}
 
+void Doodle::RenderContextMenu(){// Render Right-click Menu
     // Right-click to open the context menu
     if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(1, false)) {
         ImGui::OpenPopup("ContextMenu");
     }
-
-    // Context menu
     if (ImGui::BeginPopup("ContextMenu")) {
 
         // Toggle chalkboard mode/paper mode
@@ -102,19 +113,14 @@ void Doodle::Render() {
         if (ImGui::MenuItem(menuItemLabel)) {
             ToggleChalkboardMode();
         }
-        
         ImGui::Separator(); // ########################################
-
         // Toggle draw/erase mode
         if (ImGui::MenuItem(eraseMode ? "Draw" : "Erase")) {
             eraseMode = !eraseMode;
             GLFWcursor* newCursor = eraseMode ? eraseCursor : customCursor;
             UpdateCursor(newCursor);
         }
-
         // ########################################
-        // ########################################
-
         // When the user clicks "Clear", manually draw an overlay and open the modal popup
         if (ImGui::Button("Clear")) {
             // Calculate the overlay size and position based on the Doodle window
@@ -124,13 +130,11 @@ void Doodle::Render() {
 
             // Draw a semi-transparent rectangle over the Doodle window's area
             ImGui::GetWindowDrawList()->AddRectFilled(overlay_min, overlay_max, IM_COL32(128, 128, 128, 128));
-
             // Open the modal and set its position and size relative to the Doodle window
             ImGui::SetNextWindowPos(overlay_min);
             ImGui::SetNextWindowSize(ImVec2(ImGui::GetWindowContentRegionMax().x, ImGui::GetWindowHeight()));
             ImGui::OpenPopup("Clear Canvas?");
         }
-
         // Define the modal popup
         if (ImGui::BeginPopupModal("Clear Canvas?", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize)) {
             // Get the width of the modal to center the text
@@ -165,27 +169,19 @@ void Doodle::Render() {
 
             ImGui::EndPopup();
         }
-
-
         ImGui::Separator(); // ########################################
-        
         // Size section
-
         // Get the aspect ratio of the canvas
         float aspectRatio = canvasSize.x / canvasSize.y;
         ImGuiWindowFlags window_flags = 0; // or initialize with appropriate flags
-
         // Title for the size section
         ImGui::Text("Size");
-
         // Display the current canvas size
         ImGui::Text("Current size: %.1f x %.1f", canvasSize.x, canvasSize.y);
-
         // Use sliders to adjust the canvas size
         static bool lockAspectRatio = false;
         bool widthChanged = ImGui::SliderFloat("Width", &canvasSize.x, 20.0f, 1800.0f);
         bool heightChanged = ImGui::SliderFloat("Height", &canvasSize.y, 20.0f, 1100.0f);
-
         // If the aspect ratio is locked and one of the dimensions changed, adjust the other dimension
         if (lockAspectRatio && (widthChanged || heightChanged)) {
             if (widthChanged) {
@@ -194,22 +190,17 @@ void Doodle::Render() {
                 canvasSize.x = canvasSize.y * aspectRatio;
             }
         }
-
         // If the size changed, apply the changes to the ImGui window and canvas
         if (widthChanged || heightChanged) {
             // Apply the size changes to the ImGui window
             ImGui::SetWindowSize(("Doodle " + std::to_string(id)).c_str(), ImVec2(canvasSize.x, canvasSize.y));
         }
-
         // Toggle button for aspect ratio
         ImGui::Checkbox("Lock Ratio", &lockAspectRatio);
-
         ImGui::Separator(); // ########################################
-
         // Color section
         // Title for the color section
         ImGui::Text("Custom Color");
-
         // color picker for the canvas
         if (ImGui::ColorEdit4("##Background", (float*)&this->UserCustomBGColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel)) {
             std::cout << "Selected Canvas color: (" 
@@ -223,7 +214,6 @@ void Doodle::Render() {
         ImGui::SameLine();
         ImGui::Text("Canvas");
         // ########################################
-
         // color picker for the line
         if (ImGui::ColorEdit4("##Line", (float*)&this->UserCustomLineColor, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel)) {
             std::cout << "Selected line color: (" 
@@ -237,56 +227,47 @@ void Doodle::Render() {
         ImGui::SameLine();
         ImGui::Text("Line");
         // ########################################
-
         ImGui::Separator(); // ########################################
-
         // close button
         if (ImGui::Button("Close")) {
             showWindow = false;
         }
-
         ImGui::EndPopup();
     }
-
-    // Use the color and size variables to modify the drawing behavior
-    ImVec2 availableSize = ImGui::GetContentRegionAvail();
-    if (availableSize.x > 0 && availableSize.y > 0) {
-        ImGui::InvisibleButton("canvas", availableSize);
-        ImGui::GetWindowDrawList()->AddRectFilled(ImGui::GetItemRectMin(), ImGui::GetItemRectMax(), this->canvasColor);
-        HandleDrawing();
-    }
-
-    // Set window focus when clicked
-    if (ImGui::IsItemClicked()) {
-        ImGui::SetWindowFocus();
-    }
-    
-    // Render the doodle
-    if (!PreRender()) {
-        return;
-    }
-    PostRender();
 }
 
-void Doodle::ToggleChalkboardMode() {
+void Doodle::RenderCanvas() { // Render Canvas
+    // Get the size of the entire window for the canvas
+    ImVec2 canvasSize = ImGui::GetWindowSize();
+
+    // If the size is greater than 0, render the canvas
+    if (canvasSize.x > 0 && canvasSize.y > 0) {
+        ImVec2 canvasMin = ImGui::GetWindowPos();
+        ImVec2 canvasMax = ImVec2(canvasMin.x + canvasSize.x, canvasMin.y + canvasSize.y);
+
+        // Fill the canvas with the selected color
+        ImGui::GetWindowDrawList()->AddRectFilled(canvasMin, canvasMax, this->canvasColor);
+
+        // Create an invisible button over the canvas to handle drawing
+        ImGui::InvisibleButton("canvas", canvasSize);
+    }
+}
+
+void Doodle::ToggleChalkboardMode() { // Toggle Chalkboard Mode/Paper Mode
     this->chalkboardMode = !this->chalkboardMode;
     // Update canvasColor and lineColor based on the mode
     this->canvasColor = this->chalkboardMode ? IM_COL32(6, 26, 17, 255) : IM_COL32(245, 245, 220, 255);
     this->lineColor = this->chalkboardMode ? IM_COL32(255, 255, 255, 255) : IM_COL32(0, 0, 0, 255);
 }
 
-void Doodle::PostRender() {
-    ImGui::End();
-    ImGui::PopStyleVar();
-}
-
-void Doodle::HandleDrawing() {
+void Doodle::HandleDrawing() { // Handle Drawing
     ImVec2 mousePos = ImGui::GetMousePos();
     ImVec2 itemRectMin = ImGui::GetItemRectMin();
     ImVec2 canvasPos = ImVec2(mousePos.x - itemRectMin.x, mousePos.y - itemRectMin.y);
     bool cursorUpdated = false; // Variable to track if the cursor was updated
 
     if (ImGui::IsWindowFocused() && ImGui::IsItemHovered()) {
+        std::cout << "Window is focused and item is hovered" << std::endl;
         GLFWcursor* newCursor = eraseMode ? eraseCursor : customCursor;
 
         if (ImGui::IsMouseDown(ImGuiMouseButton_Left)) {
@@ -323,7 +304,8 @@ void Doodle::HandleDrawing() {
     }
 }
 
-void Doodle::AddPointToStroke(const ImVec2& point) {
+void Doodle::AddPointToStroke(const ImVec2& point) { // Add Point to Stroke
+    std::cout << "Adding point to stroke: " << point.x << ", " << point.y << std::endl;
     if (!isDrawing) {
         strokes.push_back(std::vector<ImVec2>());
         isDrawing = true;
@@ -331,7 +313,7 @@ void Doodle::AddPointToStroke(const ImVec2& point) {
     strokes.back().push_back(point);
 }
 
-void Doodle::DrawLines(ImVec2 itemRectMin) {
+void Doodle::DrawLines(ImVec2 itemRectMin) { // Draw Lines
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
     for (const auto& stroke : strokes) {
@@ -343,7 +325,7 @@ void Doodle::DrawLines(ImVec2 itemRectMin) {
     }
 }
 
-void Doodle::EraseLines(const ImVec2& eraseCenter) {
+void Doodle::EraseLines(const ImVec2& eraseCenter) { // Erase Lines
     float eraseBoxSize = 10.0f;
 
     std::vector<std::vector<ImVec2>> newStrokes;
@@ -367,14 +349,19 @@ void Doodle::EraseLines(const ImVec2& eraseCenter) {
     strokes.swap(newStrokes);
 }
 
-void Doodle::Close() {
-    showWindow = false;
+void Doodle::PostRender() { // Post Render
+    ImGui::End();
+    ImGui::PopStyleVar();
 }
 
-GLFWwindow* Doodle::GetWindow() {
+GLFWwindow* Doodle::GetWindow() { // Get Window
     return window;
 }
 
-void Doodle::SetWindow(GLFWwindow* win) {
+void Doodle::SetWindow(GLFWwindow* win) { // Set Window
     window = win;
+}
+
+void Doodle::Close() { // Close
+    showWindow = false;
 }

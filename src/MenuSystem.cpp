@@ -1,15 +1,18 @@
-#include "MenuSystem.h"
-#include "Doodle.h"
-#include "imgui.h"
+// Defines
+#define GLFW_EXPOSE_NATIVE_WIN32
+// Includes
+#include <GLFW/glfw3.h>
+#include <GLFW/glfw3native.h>
 #include <Windows.h>
 #include <iostream>
-#define GLFW_EXPOSE_NATIVE_WIN32 // Define this before including glfw3native.h
-#include <GLFW/glfw3native.h> // Include the native access header
-#include <GLFW/glfw3.h>
-#include "DoodleManager.h"
 
-MenuSystem::MenuSystem() {
-    //some shit in here constructor implementation i suppose
+// Project includes
+#include "imgui.h"
+#include "MenuSystem.h"
+#include "Workspace.h"
+
+MenuSystem::MenuSystem(Workspace& workspace) : workspace(workspace) {
+    // Constructor implementation...
 }
 
 bool MenuSystem::OpenFileDialog(char* selectedFile, int bufferSize, GLFWwindow* ownerWindow) {
@@ -41,7 +44,7 @@ bool MenuSystem::OpenFileDialog(char* selectedFile, int bufferSize, GLFWwindow* 
     }
 }
 
-void MenuSystem::createMainMenu(GLFWwindow* window, DoodleManager& doodleManager) {
+void MenuSystem::createMainMenu(GLFWwindow* window) {
     static bool openFileClicked = false;
 
     if (ImGui::BeginMainMenuBar()) {
@@ -49,11 +52,21 @@ void MenuSystem::createMainMenu(GLFWwindow* window, DoodleManager& doodleManager
             if (ImGui::MenuItem("New Project")) {
                 // New Project code
             }
+
+            // +Component menu
+            // lists all current available components (might want to in the future set this up to be dynamic)
+            if (ImGui::BeginMenu("+Component")) {
+                if (ImGui::MenuItem("Doodle")) {
+                    workspace.AddComponent("Doodle");  // Add a Doodle component to the workspace
+                    // console output for debugging
+                    std::cout << "workspace.addcomponent sent" << std::endl;
+                }
+                // Add more components as needed
+                ImGui::EndMenu();
+            }
+
             if (ImGui::MenuItem("Open")) {
                 openFileClicked = true;
-            }
-            if (ImGui::MenuItem("Doodle")) {
-                doodleManager.CreateNewDoodle(window); // Pass the window argument here
             }
             if (ImGui::MenuItem("Save")) {
                 // Save code
@@ -79,8 +92,4 @@ void MenuSystem::createMainMenu(GLFWwindow* window, DoodleManager& doodleManager
         }
         openFileClicked = false; // Reset the flag after handling file dialog
     }
-}
-
-std::vector<Doodle>& MenuSystem::getDoodleWindows() {
-    return doodleWindows;
 }

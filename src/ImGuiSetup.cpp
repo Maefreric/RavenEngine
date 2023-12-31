@@ -5,8 +5,8 @@
 #include <iostream>
 
 void ImGuiSetup::Init(GLFWwindow* window) {
-
-    // ########      brand colors
+    // ####################################
+    // #######-BRAND COLOR PALETTE-#######
     // raven purpleA (default)
     ImVec4 ravenPurpleA = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f);
     // raven purpleB (darker)
@@ -20,7 +20,7 @@ void ImGuiSetup::Init(GLFWwindow* window) {
     // raven red (#ff0000)
     ImVec4 ravenRed = ImVec4(1.0f, 0.0f, 0.0f, 1.0f);
 
-    
+    // ####################################
 
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION(); // Check ImGui version
@@ -50,12 +50,12 @@ void ImGuiSetup::Init(GLFWwindow* window) {
     style.Colors[ImGuiCol_ResizeGrip] = ravenPurpleA;
     style.Colors[ImGuiCol_ResizeGripHovered] = ravenPurpleB;
     style.Colors[ImGuiCol_ResizeGripActive] = ravenPurpleC;
+    style.Colors[ImGuiCol_FrameBgHovered] = ravenBlack;
     style.Colors[ImGuiCol_CheckMark] = ravenPurpleA;
     style.Colors[ImGuiCol_ScrollbarGrab] = ravenPurpleA;
     style.Colors[ImGuiCol_ScrollbarGrabHovered] = ravenPurpleB;
     style.Colors[ImGuiCol_ScrollbarGrabActive] = ravenPurpleC;
-
-
+    style.Colors[ImGuiCol_TitleBgCollapsed] = ravenPurpleA;
 }
 
 void ImGuiSetup::NewFrame() {

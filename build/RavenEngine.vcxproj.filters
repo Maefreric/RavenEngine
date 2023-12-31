@@ -16,10 +16,7 @@
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\Doodle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\DoodleManager.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Workspace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp">
@@ -41,6 +38,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Components.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\ComponentsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\ComponentCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\Doodle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

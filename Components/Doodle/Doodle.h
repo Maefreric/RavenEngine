@@ -3,10 +3,11 @@
 #include "imgui.h"
 #include <GLFW/glfw3.h>
 #include <vector>
+#include "../Components.h"
 
-class Doodle {
+class Doodle : public Component {
 public:
-    Doodle(GLFWwindow* win);
+    Doodle(int x, int y, Workspace& workspace, GLFWwindow* win); // Updated constructor
     ~Doodle();
     GLFWwindow* GetWindow();
     void SetWindow(GLFWwindow* win);
@@ -16,6 +17,12 @@ public:
     void SetPosition(const ImVec2& pos);
 
     void UpdateCursorState();
+    void RenderContextMenu();
+    void RenderCanvas();
+
+    void Update() override {
+        // Implement the Update function here
+    }
 
     bool PreRender();
     void Render();

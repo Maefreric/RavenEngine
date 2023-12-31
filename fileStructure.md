@@ -1,32 +1,39 @@
-- .vscode/
-    - settings.json
-    - tasks.json
-    - c_cpp_properties.json
-- CMakeLists.txt
-- Assets/
-    - RavenLogoImgs/
-- src/
-    - main.cpp
-    - WindowManager.cpp
-    - MenuSystem.cpp
-    - ImGuiSetup.cpp
-    - ResourceManager.cpp
-- resources.rc
-- libs/
-    - imgui/
-- bin/
-- include/
-    - WindowManager.h
-    - MenuSystem.h
-    - ImGuiSetup.h
-    - ResourceManager.h
-- build/
-    - CMakeFiles/
-    - CMakeCache.txt
-    - ZERO_CHECK.vcxproj
-    - ZERO_CHECK.vcxproj.filters
-    - RavenEngine.vcxproj
-    - RavenEngine.vcxproj.filters
-    - ALL_BUILD.vcxproj
-    - ALL_BUILD.vcxproj.filters
-- fileStructure.md
+- 📂 .vscode
+  - 📄 c_cpp_properties.json
+  - 📄 settings.json
+  - 📄 tasks.json
+- 📂 Assets
+  - 📂 RavenLogoImgs
+- 📂 include
+  - 📄 ImGuiSetup.h
+  - 📄 MenuSystem.h
+  - 📄 ResourceManager.h
+  - 📄 WindowManager.h
+  - 📄 Workspace.h
+- 📂 libs
+  - 📂 imgui
+  - 📂 stb
+- 📂 src
+  - 📄 main.cpp
+  - 📄 WindowManager.cpp
+  - 📄 MenuSystem.cpp
+  - 📄 ImGuiSetup.cpp
+  - 📄 ResourceManager.cpp
+  - 📂 Assets
+  - 📄 Workspace.cpp
+- 📂 Components
+  - 📂 Doodle
+    - 📄 Doodle.cpp
+    - 📄 Doodle.h
+  - 📄 CMakeLists.txt
+  - 📄 Components.cpp
+  - 📄 Components.h
+  - 📄 ComponentsManager.cpp
+  - 📄 ComponentsManager.h
+  - 📄 ComponentCreator.cpp
+  - 📄 ComponentCreator.h
+- 📄 CMakeLists.txt
+- 📄 fileStructure.md
+- 📄 resources.rc
+- 📄 README.md
+- 📂 build

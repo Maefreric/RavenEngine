@@ -87,7 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/src/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -106,10 +106,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;GLFW_DLL;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -144,7 +144,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/src/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -163,10 +163,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -201,7 +201,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/src/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -220,10 +220,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -258,7 +258,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/src/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -276,10 +276,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components\Doodle;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\imgui\backends;D:\RavenEngineProject\RavenEngine\Components;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -375,9 +375,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\MenuSystem.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\ImGuiSetup.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\ResourceManager.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Workspace.cpp" />
     <ResourceCompile Include="D:\RavenEngineProject\RavenEngine\resources.rc" />
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\Doodle.cpp" />
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\DoodleManager.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_opengl3.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\imgui.cpp" />
@@ -385,6 +384,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\imgui_tables.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Components.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\ComponentsManager.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\ComponentCreator.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\Doodle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\RavenEngineProject\RavenEngine\build\ZERO_CHECK.vcxproj">
