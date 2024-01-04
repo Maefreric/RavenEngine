@@ -5,7 +5,7 @@
 #include <string>
 #include <memory>
 #include <utility> // Include for std::pair
-#include "ComponentsManager.h" // Include ComponentsManager
+#include "ComponentManager.h" // Include ComponentsManager
 #include "imgui.h" // Include for ImVec2
 #include "WindowManager.h" // Include WindowManager
 
@@ -15,7 +15,7 @@ private:
     float height;
     float menuBarHeight;
     GLFWwindow* window;
-    ComponentsManager componentsManager;
+    ComponentManager componentManager;
     WindowManager& windowManager;
     static bool printedMenuData;
 

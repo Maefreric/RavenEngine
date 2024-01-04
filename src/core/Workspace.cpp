@@ -9,7 +9,7 @@
 bool Workspace::printedMenuData = false;
 
 Workspace::Workspace(float width, float height, float menuBarHeight, GLFWwindow* mainWin, WindowManager& wm)
-    : width(width), height(height), menuBarHeight(menuBarHeight), window(mainWin), componentsManager(*this), windowManager(wm) {
+    : width(width), height(height), menuBarHeight(menuBarHeight), window(mainWin), componentManager(*this), windowManager(wm) {
     ImGuiIO& io = ImGui::GetIO();
     io.IniFilename = nullptr;  // Disable .ini file saving/loading for window positions and sizes
 }
@@ -40,7 +40,7 @@ void Workspace::AddComponent(const std::string& componentName) {
 
     // Check if the component was created successfully
     if (newComponent) {
-        componentsManager.AddComponent(std::move(newComponent));
+        componentManager.AddComponent(std::move(newComponent));
         std::cout << "Component added" << std::endl;
     } else {
         std::cerr << "Failed to create component: " << componentName << std::endl;
@@ -49,14 +49,14 @@ void Workspace::AddComponent(const std::string& componentName) {
 }
 
 void Workspace::Update() {
-    componentsManager.UpdateComponents();
+    componentManager.UpdateComponents();
 }
 
 void Workspace::Render() {
     glClearColor(0.094f, 0.094f, 0.094f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    componentsManager.UpdateComponents();  // Make sure components are updated
-    componentsManager.RenderComponents();  // Render components within bounds
+    componentManager.UpdateComponents();  // Make sure components are updated
+    componentManager.RenderComponents();  // Render components within bounds
 }
 
 void Workspace::SetSize(float newWidth, float newHeight) {

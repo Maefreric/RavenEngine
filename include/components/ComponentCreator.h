@@ -1,7 +1,7 @@
 #ifndef COMPONENTCREATOR_H
 #define COMPONENTCREATOR_H
 
-#include "Components.h"
+#include "Component.h"
 #include <memory>
 #include <string> // Include the string header
 #include <GLFW/glfw3.h>

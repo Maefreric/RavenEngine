@@ -1,14 +1,14 @@
-#include "ComponentsManager.h"
-#include "Workspace.h"
+#include "ComponentManager.h"
+#include "../../include/core/Workspace.h"
 #include <iostream>
 
-ComponentsManager::ComponentsManager(Workspace& workspace) : workspace(workspace) {}
+ComponentManager::ComponentManager(Workspace& workspace) : workspace(workspace) {}
 
-void ComponentsManager::AddComponent(std::unique_ptr<Component> component) {
+void ComponentManager::AddComponent(std::unique_ptr<Component> component) {
     components.push_back(std::move(component)); // Add the component to the vector
 }
 
-void ComponentsManager::UpdateComponents() {
+void ComponentManager::UpdateComponents() {
     for (auto& component : components) {
         if (!component->IsVisible()) {
             continue; // Skip non-visible components
@@ -24,7 +24,7 @@ void ComponentsManager::UpdateComponents() {
     }
 }
 
-void ComponentsManager::RenderComponents() {
+void ComponentManager::RenderComponents() {
     for (auto& component : components) {
         if (component->IsVisible() && workspace.isInside(component->GetX(), component->GetY())) {
             component->Render();
@@ -32,13 +32,13 @@ void ComponentsManager::RenderComponents() {
     }
 }
 
-void ComponentsManager::RemoveInvisibleComponents() {
+void ComponentManager::RemoveInvisibleComponents() {
     components.erase(
         std::remove_if(components.begin(), components.end(),
                        [](const auto& comp){ return !comp->IsVisible(); }),
         components.end());
 }
 
-size_t ComponentsManager::GetComponentCount() const {
+size_t ComponentManager::GetComponentCount() const {
     return components.size();
 }

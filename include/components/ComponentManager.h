@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <memory> // For std::unique_ptr
-#include "Components.h" // Make sure this is the correct include for your Component class
+#include "Component.h" // Make sure this is the correct include for your Component class
 
 class Workspace; // Forward declaration
 

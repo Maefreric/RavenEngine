@@ -1,4 +1,4 @@
-#include "Components.h"
+#include "Component.h"
 #include <iostream>
 
 

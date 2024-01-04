@@ -1,5 +1,5 @@
-#ifndef COMPONENTS_H
-#define COMPONENTS_H
+#ifndef COMPONENT_H
+#define COMPONENT_H
 
 #include <GLFW/glfw3.h>
 #include <string>
@@ -34,4 +34,4 @@ private:
     GLFWwindow* window;
 };
 
-#endif // COMPONENTS_H
+#endif // COMPONENT_H
