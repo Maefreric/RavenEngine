@@ -8,6 +8,7 @@
                 "/Zi",
                 "/EHsc",
                 "/nologo",
+                "/std:c++latest", // Use the latest C++ standard
                 "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "${file}"
             ],

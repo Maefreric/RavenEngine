@@ -1,5 +1,6 @@
 #include "ComponentsManager.h"
 #include "Workspace.h"
+#include <iostream>
 
 ComponentsManager::ComponentsManager(Workspace& workspace) : workspace(workspace) {}
 
@@ -9,7 +10,17 @@ void ComponentsManager::AddComponent(std::unique_ptr<Component> component) {
 
 void ComponentsManager::UpdateComponents() {
     for (auto& component : components) {
-        component->Update(); // Assuming each component has an Update method
+        if (!component->IsVisible()) {
+            continue; // Skip non-visible components
+        }
+
+        if (!workspace.isInside(component->GetX(), component->GetY())) {
+            continue; // Skip components outside workspace bounds
+        }
+        component->Update();
+        component->PreRender();
+        component->Render();
+        component->PostRender();
     }
 }
 
@@ -26,4 +37,8 @@ void ComponentsManager::RemoveInvisibleComponents() {
         std::remove_if(components.begin(), components.end(),
                        [](const auto& comp){ return !comp->IsVisible(); }),
         components.end());
+}
+
+size_t ComponentsManager::GetComponentCount() const {
+    return components.size();
 }

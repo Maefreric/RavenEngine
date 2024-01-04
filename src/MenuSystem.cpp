@@ -56,8 +56,23 @@ void MenuSystem::createMainMenu(GLFWwindow* window) {
             // +Component menu
             // lists all current available components (might want to in the future set this up to be dynamic)
             if (ImGui::BeginMenu("+Component")) {
+                //doodle
                 if (ImGui::MenuItem("Doodle")) {
                     workspace.AddComponent("Doodle");  // Add a Doodle component to the workspace
+                    // console output for debugging
+                    std::cout << "workspace.addcomponent sent" << std::endl;
+                }
+                
+                // doodleboard (doodle testing)
+                if (ImGui::MenuItem("Doodle Bored")) {
+                    workspace.AddComponent("Doodle Bored");  // Add a Doodle Bored component to the workspace
+                    // console output for debugging
+                    std::cout << "workspace.addcomponent sent" << std::endl;
+                }
+
+                //blue dot( testing physics)
+                if (ImGui::MenuItem("Blue Dot")) {
+                    workspace.AddComponent("Blue Dot");  // Add a Blue Dot component to the workspace
                     // console output for debugging
                     std::cout << "workspace.addcomponent sent" << std::endl;
                 }

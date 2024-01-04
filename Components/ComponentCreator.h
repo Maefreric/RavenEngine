@@ -5,12 +5,16 @@
 #include <memory>
 #include <string> // Include the string header
 #include <GLFW/glfw3.h>
+#include <iostream>
 
+class Workspace; // Forward declaration
 
 class ComponentCreator {
 public:
-    // Assuming you have different types of components, you can use an enum or string to specify the type.
-    static std::unique_ptr<Component> CreateComponent(const std::string& type, int x, int y, Workspace& workspace, GLFWwindow* win);
+    // Change this method to accept float parameters for the position and size
+    static std::unique_ptr<Component> CreateComponent(const std::string& type, float x, float y, float width, float height, Workspace& workspace, GLFWwindow* win);
+
+    // ... other methods ...
 };
 
 #endif // COMPONENTCREATOR_H

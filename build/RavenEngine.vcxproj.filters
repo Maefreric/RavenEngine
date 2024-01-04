@@ -52,6 +52,9 @@
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\Doodle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\DoodleBored.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\RavenEngineProject\RavenEngine\CMakeLists.txt" />

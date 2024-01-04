@@ -16,6 +16,8 @@ public:
     void UpdateComponents();
     void RenderComponents();
     void RemoveInvisibleComponents(); // Added this line
+    void ClampAndRenderComponents(); // Added this line
+    size_t GetComponentCount() const;
 
 private:
     std::vector<std::unique_ptr<Component>> components;

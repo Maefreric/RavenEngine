@@ -1,26 +1,37 @@
 #ifndef COMPONENTS_H
 #define COMPONENTS_H
 
-class Workspace;  // Forward declaration of Workspace
+#include <GLFW/glfw3.h>
+#include <string>
+
+class Workspace; // Forward declaration
 
 class Component {
 public:
-    Component(int x, int y, Workspace& workspace);
-    virtual ~Component() = default;
+    Component(float x, float y, float width, float height, Workspace& workspace, GLFWwindow* win);
+    virtual ~Component();
 
-    virtual void Render() = 0; // Pure virtual function for rendering
-    virtual void Update() = 0; // Pure virtual function for updating
-
-    bool IsVisible() const;
+    virtual bool IsVisible() const;
     void SetVisibility(bool visible);
 
-    int GetX() const;
-    int GetY() const;
+    float GetX() const;
+    float GetY() const;
+    float GetWidth() const;
+    float GetHeight() const;
+    virtual std::string GetName() const;
+
+    virtual void Update();
+    virtual void Render();
+    virtual void PreRender();
+    virtual void PostRender();
 
 protected:
-    int x, y;
-    bool visible;
     Workspace& workspace;
+
+private:
+    float x, y, width, height;
+    bool visible;
+    GLFWwindow* window;
 };
 
 #endif // COMPONENTS_H

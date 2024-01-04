@@ -392,6 +392,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\ComponentsManager.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\ComponentCreator.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\Doodle.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\DoodleBored.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\RavenEngineProject\RavenEngine\build\ZERO_CHECK.vcxproj">

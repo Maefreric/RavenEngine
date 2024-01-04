@@ -4,24 +4,15 @@
 #include "backends/imgui_impl_opengl3.h"
 #include <iostream>
 
+// Initialize static member variables with the brand color palette
+ImVec4 ImGuiSetup::ravenPurpleA(0.2784f, 0.2392f, 0.2902f, 1.0f);
+ImVec4 ImGuiSetup::ravenPurpleB(0.2506f, 0.2153f, 0.2612f, 1.0f);
+ImVec4 ImGuiSetup::ravenPurpleC(0.3062f, 0.2631f, 0.3192f, 1.0f);
+ImVec4 ImGuiSetup::ravenBlack(0.0941f, 0.0941f, 0.0941f, 1.0f);
+ImVec4 ImGuiSetup::ravenWhite(0.9961f, 0.9961f, 0.9961f, 1.0f);
+ImVec4 ImGuiSetup::ravenRed(1.0f, 0.0f, 0.0f, 1.0f);
+
 void ImGuiSetup::Init(GLFWwindow* window) {
-    // ####################################
-    // #######-BRAND COLOR PALETTE-#######
-    // raven purpleA (default)
-    ImVec4 ravenPurpleA = ImVec4(0.2784f, 0.2392f, 0.2902f, 1.0f);
-    // raven purpleB (darker)
-    ImVec4 ravenPurpleB = ImVec4(0.2784f * 0.9f, 0.2392f * 0.9f, 0.2902f * 0.9f, 1.0f);
-    // raven purpleC (lighter)
-    ImVec4 ravenPurpleC = ImVec4(0.2784f * 1.1f, 0.2392f * 1.1f, 0.2902f * 1.1f, 1.0f);
-    // raven black (#181818)
-    ImVec4 ravenBlack = ImVec4(0.0941f, 0.0941f, 0.0941f, 1.0f);
-    // raven white (#fefefe)
-    ImVec4 ravenWhite = ImVec4(0.9961f, 0.9961f, 0.9961f, 1.0f);
-    // raven red (#ff0000)
-    ImVec4 ravenRed = ImVec4(1.0f, 0.0f, 0.0f, 1.0f);
-
-    // ####################################
-
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION(); // Check ImGui version
     ImGui::CreateContext(); // Create ImGui context
@@ -34,28 +25,27 @@ void ImGuiSetup::Init(GLFWwindow* window) {
 
     // Change the default highlighted color
     ImGuiStyle& style = ImGui::GetStyle();
-    style.Colors[ImGuiCol_ButtonHovered] = ravenRed; 
-    style.Colors[ImGuiCol_ButtonActive] = ravenPurpleA; 
-    style.Colors[ImGuiCol_FrameBg] = ravenBlack; 
-    style.Colors[ImGuiCol_Text] = ravenWhite; 
-    style.Colors[ImGuiCol_Header] = ravenPurpleA;
-    style.Colors[ImGuiCol_HeaderHovered] = ravenPurpleB;
-    style.Colors[ImGuiCol_HeaderActive] = ravenPurpleC;
-    style.Colors[ImGuiCol_SliderGrab] = ravenWhite;
-    style.Colors[ImGuiCol_SliderGrabActive] = ravenWhite;
-    style.Colors[ImGuiCol_CheckMark] = ravenWhite;
-    style.Colors[ImGuiCol_FrameBgHovered] = ravenPurpleB;
-    style.Colors[ImGuiCol_FrameBgActive] = ravenPurpleC;
-    style.Colors[ImGuiCol_Button] = ravenPurpleA;
-    style.Colors[ImGuiCol_ResizeGrip] = ravenPurpleA;
-    style.Colors[ImGuiCol_ResizeGripHovered] = ravenPurpleB;
-    style.Colors[ImGuiCol_ResizeGripActive] = ravenPurpleC;
-    style.Colors[ImGuiCol_FrameBgHovered] = ravenBlack;
-    style.Colors[ImGuiCol_CheckMark] = ravenPurpleA;
-    style.Colors[ImGuiCol_ScrollbarGrab] = ravenPurpleA;
-    style.Colors[ImGuiCol_ScrollbarGrabHovered] = ravenPurpleB;
-    style.Colors[ImGuiCol_ScrollbarGrabActive] = ravenPurpleC;
-    style.Colors[ImGuiCol_TitleBgCollapsed] = ravenPurpleA;
+    style.Colors[ImGuiCol_ButtonHovered] = ImGuiSetup::ravenRed; 
+    style.Colors[ImGuiCol_ButtonActive] = ImGuiSetup::ravenPurpleA; 
+    style.Colors[ImGuiCol_FrameBg] = ImGuiSetup::ravenBlack; 
+    style.Colors[ImGuiCol_Text] = ImGuiSetup::ravenWhite; 
+    style.Colors[ImGuiCol_Header] = ImGuiSetup::ravenPurpleA;
+    style.Colors[ImGuiCol_HeaderHovered] = ImGuiSetup::ravenPurpleB;
+    style.Colors[ImGuiCol_HeaderActive] = ImGuiSetup::ravenPurpleC;
+    style.Colors[ImGuiCol_SliderGrab] = ImGuiSetup::ravenWhite;
+    style.Colors[ImGuiCol_SliderGrabActive] = ImGuiSetup::ravenWhite;
+    style.Colors[ImGuiCol_CheckMark] = ImGuiSetup::ravenPurpleA;
+    style.Colors[ImGuiCol_FrameBgHovered] = ImGuiSetup::ravenBlack;
+    style.Colors[ImGuiCol_FrameBgActive] = ImGuiSetup::ravenPurpleC;
+    style.Colors[ImGuiCol_Button] = ImGuiSetup::ravenPurpleA;
+    style.Colors[ImGuiCol_ResizeGrip] = ImGuiSetup::ravenPurpleA;
+    style.Colors[ImGuiCol_ResizeGripHovered] = ImGuiSetup::ravenPurpleB;
+    style.Colors[ImGuiCol_ResizeGripActive] = ImGuiSetup::ravenPurpleC;
+    style.Colors[ImGuiCol_ScrollbarGrab] = ImGuiSetup::ravenPurpleA;
+    style.Colors[ImGuiCol_ScrollbarGrabHovered] = ImGuiSetup::ravenPurpleB;
+    style.Colors[ImGuiCol_ScrollbarGrabActive] = ImGuiSetup::ravenPurpleC;
+    style.Colors[ImGuiCol_TitleBgCollapsed] = ImGuiSetup::ravenPurpleA;
+    style.Colors[ImGuiCol_TitleBgActive] = ImGuiSetup::ravenPurpleA;
 }
 
 void ImGuiSetup::NewFrame() {
