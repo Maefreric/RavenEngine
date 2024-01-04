@@ -1,5 +1,5 @@
 # Include Doodle component
-add_subdirectory(Doodle)
+
 
 set(COMPONENTS_SOURCES 
     ${CMAKE_CURRENT_SOURCE_DIR}/Components.cpp 
