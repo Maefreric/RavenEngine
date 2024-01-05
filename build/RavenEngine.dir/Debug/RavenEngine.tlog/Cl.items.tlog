@@ -1,5 +1,5 @@
 D:\RavenEngineProject\RavenEngine\src\main.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\main.obj
-D:\RavenEngineProject\RavenEngine\src\core\WindowManager.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\WindowManager.obj
+D:\RavenEngineProject\RavenEngine\src\core\AppWindow.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\AppWindow.obj
 D:\RavenEngineProject\RavenEngine\src\core\Workspace.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\Workspace.obj
 D:\RavenEngineProject\RavenEngine\src\utils\MenuSystem.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\MenuSystem.obj
 D:\RavenEngineProject\RavenEngine\src\utils\ImGuiSetup.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\ImGuiSetup.obj
@@ -8,6 +8,7 @@ D:\RavenEngineProject\RavenEngine\src\utils\FileDialog.cpp;D:\RavenEngineProject
 D:\RavenEngineProject\RavenEngine\src\Components\Component.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\Component.obj
 D:\RavenEngineProject\RavenEngine\src\Components\ComponentCreator.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\ComponentCreator.obj
 D:\RavenEngineProject\RavenEngine\src\Components\ComponentManager.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\ComponentManager.obj
+D:\RavenEngineProject\RavenEngine\src\Components\TransformComponent.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\TransformComponent.obj
 D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\imgui_impl_glfw.obj
 D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_opengl3.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\imgui_impl_opengl3.obj
 D:\RavenEngineProject\RavenEngine\libs\imgui\imgui.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\imgui.obj
