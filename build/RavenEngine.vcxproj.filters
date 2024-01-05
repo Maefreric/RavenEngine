@@ -4,19 +4,31 @@
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\WindowManager.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\core\WindowManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\MenuSystem.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\core\Workspace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\ImGuiSetup.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\utils\MenuSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\ResourceManager.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\utils\ImGuiSetup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Workspace.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\utils\ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\utils\FileDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\Component.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\ComponentCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\ComponentManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp">
@@ -38,21 +50,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\imgui_widgets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Components.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\ComponentsManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\ComponentCreator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\Doodle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\Components\Doodle\DoodleBored.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

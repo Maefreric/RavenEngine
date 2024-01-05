@@ -24,7 +24,7 @@ events:
       The output was:
       0
       MSBuild version 17.8.3+195e7f5a3 for .NET Framework
-      Build started 12/30/2023 4:18:44 PM.
+      Build started 1/4/2024 9:33:55 PM.
       
       Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\3.28.1\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -62,7 +62,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.74
+      Time Elapsed 00:00:01.09
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -88,7 +88,7 @@ events:
       The output was:
       0
       MSBuild version 17.8.3+195e7f5a3 for .NET Framework
-      Build started 12/30/2023 4:18:45 PM.
+      Build started 1/4/2024 9:33:57 PM.
       
       Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\3.28.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -126,7 +126,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.75
+      Time Elapsed 00:00:00.80
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -145,8 +145,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-0ex9ad"
-      binary: "D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-0ex9ad"
+      source: "D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-ozw9mf"
+      binary: "D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-ozw9mf"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -158,33 +158,33 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-0ex9ad'
+        Change Dir: 'D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-ozw9mf'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_dac42.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b50f6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.8.3+195e7f5a3 for .NET Framework
-        Build started 12/30/2023 4:18:46 PM.
+        Build started 1/4/2024 9:33:58 PM.
         
-        Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0ex9ad\\cmTC_dac42.vcxproj" on node 1 (default targets).
+        Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozw9mf\\cmTC_b50f6.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_dac42.dir\\Debug\\".
+          Creating directory "cmTC_b50f6.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0ex9ad\\Debug\\".
-          Creating directory "cmTC_dac42.dir\\Debug\\cmTC_dac42.tlog\\".
+          Creating directory "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozw9mf\\Debug\\".
+          Creating directory "cmTC_b50f6.dir\\Debug\\cmTC_b50f6.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_dac42.dir\\Debug\\cmTC_dac42.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_dac42.dir\\Debug\\cmTC_dac42.tlog\\unsuccessfulbuild".
+          Creating "cmTC_b50f6.dir\\Debug\\cmTC_b50f6.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_b50f6.dir\\Debug\\cmTC_b50f6.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_dac42.dir\\Debug\\\\" /Fd"cmTC_dac42.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b50f6.dir\\Debug\\\\" /Fd"cmTC_b50f6.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.38.33133 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_dac42.dir\\Debug\\\\" /Fd"cmTC_dac42.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b50f6.dir\\Debug\\\\" /Fd"cmTC_b50f6.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.28\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0ex9ad\\Debug\\cmTC_dac42.exe" /INCREMENTAL /ILK:"cmTC_dac42.dir\\Debug\\cmTC_dac42.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-0ex9ad/Debug/cmTC_dac42.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-0ex9ad/Debug/cmTC_dac42.lib" /MACHINE:X64  /machine:x64 cmTC_dac42.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_dac42.vcxproj -> D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0ex9ad\\Debug\\cmTC_dac42.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozw9mf\\Debug\\cmTC_b50f6.exe" /INCREMENTAL /ILK:"cmTC_b50f6.dir\\Debug\\cmTC_b50f6.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-ozw9mf/Debug/cmTC_b50f6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-ozw9mf/Debug/cmTC_b50f6.lib" /MACHINE:X64  /machine:x64 cmTC_b50f6.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_b50f6.vcxproj -> D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozw9mf\\Debug\\cmTC_b50f6.exe
         PostBuildEvent:
           setlocal
-          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/src/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-0ex9ad/Debug/cmTC_dac42.exe -installedDir C:/src/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/src/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-ozw9mf/Debug/cmTC_b50f6.exe -installedDir C:/src/vcpkg/installed/x64-windows/debug/bin -OutVariable out
           if %errorlevel% neq 0 goto :cmEnd
           :cmEnd
           endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -194,15 +194,15 @@ events:
           if %errorlevel% neq 0 goto :VCEnd
           :VCEnd
         FinalizeBuildStatus:
-          Deleting file "cmTC_dac42.dir\\Debug\\cmTC_dac42.tlog\\unsuccessfulbuild".
-          Touching "cmTC_dac42.dir\\Debug\\cmTC_dac42.tlog\\cmTC_dac42.lastbuildstate".
-        Done Building Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0ex9ad\\cmTC_dac42.vcxproj" (default targets).
+          Deleting file "cmTC_b50f6.dir\\Debug\\cmTC_b50f6.tlog\\unsuccessfulbuild".
+          Touching "cmTC_b50f6.dir\\Debug\\cmTC_b50f6.tlog\\cmTC_b50f6.lastbuildstate".
+        Done Building Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ozw9mf\\cmTC_b50f6.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.70
+        Time Elapsed 00:00:00.76
         
       exitCode: 0
   -
@@ -214,8 +214,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-xr8ury"
-      binary: "D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-xr8ury"
+      source: "D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-m43wih"
+      binary: "D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-m43wih"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -227,33 +227,33 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-xr8ury'
+        Change Dir: 'D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-m43wih'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_39555.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d7caf.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.8.3+195e7f5a3 for .NET Framework
-        Build started 12/30/2023 4:18:47 PM.
+        Build started 1/4/2024 9:33:59 PM.
         
-        Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xr8ury\\cmTC_39555.vcxproj" on node 1 (default targets).
+        Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m43wih\\cmTC_d7caf.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_39555.dir\\Debug\\".
+          Creating directory "cmTC_d7caf.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xr8ury\\Debug\\".
-          Creating directory "cmTC_39555.dir\\Debug\\cmTC_39555.tlog\\".
+          Creating directory "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m43wih\\Debug\\".
+          Creating directory "cmTC_d7caf.dir\\Debug\\cmTC_d7caf.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_39555.dir\\Debug\\cmTC_39555.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_39555.dir\\Debug\\cmTC_39555.tlog\\unsuccessfulbuild".
+          Creating "cmTC_d7caf.dir\\Debug\\cmTC_d7caf.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_d7caf.dir\\Debug\\cmTC_d7caf.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_39555.dir\\Debug\\\\" /Fd"cmTC_39555.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_d7caf.dir\\Debug\\\\" /Fd"cmTC_d7caf.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.38.33133 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_39555.dir\\Debug\\\\" /Fd"cmTC_39555.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_d7caf.dir\\Debug\\\\" /Fd"cmTC_d7caf.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.28\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xr8ury\\Debug\\cmTC_39555.exe" /INCREMENTAL /ILK:"cmTC_39555.dir\\Debug\\cmTC_39555.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-xr8ury/Debug/cmTC_39555.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-xr8ury/Debug/cmTC_39555.lib" /MACHINE:X64  /machine:x64 cmTC_39555.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_39555.vcxproj -> D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xr8ury\\Debug\\cmTC_39555.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m43wih\\Debug\\cmTC_d7caf.exe" /INCREMENTAL /ILK:"cmTC_d7caf.dir\\Debug\\cmTC_d7caf.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-m43wih/Debug/cmTC_d7caf.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-m43wih/Debug/cmTC_d7caf.lib" /MACHINE:X64  /machine:x64 cmTC_d7caf.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_d7caf.vcxproj -> D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m43wih\\Debug\\cmTC_d7caf.exe
         PostBuildEvent:
           setlocal
-          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/src/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-xr8ury/Debug/cmTC_39555.exe -installedDir C:/src/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+          C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/src/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/RavenEngineProject/RavenEngine/build/CMakeFiles/CMakeScratch/TryCompile-m43wih/Debug/cmTC_d7caf.exe -installedDir C:/src/vcpkg/installed/x64-windows/debug/bin -OutVariable out
           if %errorlevel% neq 0 goto :cmEnd
           :cmEnd
           endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -263,15 +263,15 @@ events:
           if %errorlevel% neq 0 goto :VCEnd
           :VCEnd
         FinalizeBuildStatus:
-          Deleting file "cmTC_39555.dir\\Debug\\cmTC_39555.tlog\\unsuccessfulbuild".
-          Touching "cmTC_39555.dir\\Debug\\cmTC_39555.tlog\\cmTC_39555.lastbuildstate".
-        Done Building Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xr8ury\\cmTC_39555.vcxproj" (default targets).
+          Deleting file "cmTC_d7caf.dir\\Debug\\cmTC_d7caf.tlog\\unsuccessfulbuild".
+          Touching "cmTC_d7caf.dir\\Debug\\cmTC_d7caf.tlog\\cmTC_d7caf.lastbuildstate".
+        Done Building Project "D:\\RavenEngineProject\\RavenEngine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m43wih\\cmTC_d7caf.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.73
+        Time Elapsed 00:00:01.31
         
       exitCode: 0
 ...
