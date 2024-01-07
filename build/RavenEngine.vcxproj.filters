@@ -4,22 +4,22 @@
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\core\AppWindow.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Core\AppWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\core\Workspace.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Core\Workspace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\utils\MenuSystem.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\MenuSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\utils\ImGuiSetup.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ImGuiManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\utils\ResourceManager.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\utils\FileDialog.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\FileDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\Component.cpp">
@@ -32,6 +32,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\TransformComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Viewport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp">
@@ -53,6 +59,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
