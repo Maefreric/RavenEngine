@@ -87,7 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/src/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -107,10 +107,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;GLFW_DLL;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -145,7 +145,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/src/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -165,10 +165,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -203,7 +203,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/src/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -223,10 +223,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -261,7 +261,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/src/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -280,10 +280,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\RavenEngineProject\RavenEngine\include;D:\RavenEngineProject\RavenEngine\include\Core;D:\RavenEngineProject\RavenEngine\include\Components;D:\RavenEngineProject\RavenEngine\include\Utils;D:\RavenEngineProject\RavenEngine\include\Renderer;D:\RavenEngineProject\RavenEngine\include\Scene;D:\RavenEngineProject\RavenEngine\include\glad;D:\RavenEngineProject\RavenEngine\include\KHR;D:\RavenEngineProject\RavenEngine\libs\imgui;D:\RavenEngineProject\RavenEngine\libs\glm;C:\src\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -377,16 +377,19 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\main.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Core\AppWindow.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Core\Workspace.cpp" />
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\MenuSystem.cpp" />
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ImGuiManager.cpp" />
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ResourceManager.cpp" />
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\FileDialog.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Core\Scene.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\Component.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\ComponentCreator.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\ComponentManager.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\TransformComponent.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\SceneNode.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Renderer.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Viewport.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\FileDialog.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ImGuiManager.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\MenuSystem.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ResourceManager.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\SceneHierarchyPanel.cpp" />
     <ResourceCompile Include="D:\RavenEngineProject\RavenEngine\resources.rc" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_opengl3.cpp" />

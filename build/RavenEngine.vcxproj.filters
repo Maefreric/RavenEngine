@@ -10,16 +10,7 @@
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Core\Workspace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\MenuSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ImGuiManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\FileDialog.cpp">
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Core\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\Component.cpp">
@@ -34,10 +25,28 @@
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\TransformComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\SceneNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Viewport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\FileDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ImGuiManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\MenuSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\SceneHierarchyPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp">
