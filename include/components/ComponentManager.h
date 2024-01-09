@@ -1,27 +1,20 @@
-#ifndef COMPONENTSMANAGER_H
-#define COMPONENTSMANAGER_H
+#ifndef COMPONENT_MANAGER_H
+#define COMPONENT_MANAGER_H
 
+#include <memory>
 #include <vector>
-#include <memory> // For std::unique_ptr
-#include "Component.h" // Make sure this is the correct include for your Component class
+#include "Component.h"
 
-class Workspace; // Forward declaration
-
-class ComponentsManager {
-public:
-    ComponentsManager(Workspace& workspace);
-    ~ComponentsManager() = default;
-
-    void AddComponent(std::unique_ptr<Component> component);
-    void UpdateComponents();
-    void RenderComponents();
-    void RemoveInvisibleComponents(); // Added this line
-    void ClampAndRenderComponents(); // Added this line
-    size_t GetComponentCount() const;
-
+class ComponentManager {
 private:
     std::vector<std::unique_ptr<Component>> components;
-    Workspace& workspace;
+
+public:
+    ComponentManager();
+    void AddComponent(std::unique_ptr<Component> component);
+
+    void UpdateComponents(); // Calls Update on all components
+    void RenderImGuiComponents(); // Calls RenderImGui on all components
 };
 
-#endif // COMPONENTSMANAGER_H
+#endif // COMPONENT_MANAGER_H

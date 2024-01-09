@@ -5,26 +5,28 @@
 #include "ResourceManager.h"
 #include <iostream>
 
-HICON ResourceManager::smallIcon = nullptr; // Static member variable to store the small icon
-HICON ResourceManager::largeIcon = nullptr; // Static member variable to store the large icon
+HICON ResourceManager::smallIcon = nullptr;
+HICON ResourceManager::largeIcon = nullptr;
 
 void ResourceManager::LoadIcon(GLFWwindow* window, LPCWSTR iconPath16, LPCWSTR iconPath32) {
-    smallIcon = (HICON)LoadImageW(nullptr, iconPath16, IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
-    largeIcon = (HICON)LoadImageW(nullptr, iconPath32, IMAGE_ICON, 32, 32, LR_LOADFROMFILE);
-    
-}
+    // Use absolute paths for debugging purposes
+    // You should see the correct absolute path printed in the console
+    wchar_t fullIconPath16[MAX_PATH];
+    wchar_t fullIconPath32[MAX_PATH];
+    GetFullPathNameW(iconPath16, MAX_PATH, fullIconPath16, nullptr);
+    GetFullPathNameW(iconPath32, MAX_PATH, fullIconPath32, nullptr);
 
-void ResourceManager::SetWindowIcons(GLFWwindow* window) {
-    HWND hwnd = glfwGetWin32Window(window); // Get the native Win32 window handle from the GLFW window
-    
-    // Set the small icon for the window if it exists
-    if (smallIcon) {
-        SendMessage(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)smallIcon);
+    std::wcerr << L"Attempting to load small icon from: " << fullIconPath16 << std::endl;
+    std::wcerr << L"Attempting to load large icon from: " << fullIconPath32 << std::endl;
+
+    smallIcon = (HICON)LoadImageW(NULL, fullIconPath16, IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
+    if (smallIcon == nullptr) {
+        std::cerr << "Failed to load small icon. Error: " << GetLastError() << std::endl;
     }
-    
-    // Set the large icon for the window if it exists
-    if (largeIcon) {
-        SendMessage(hwnd, WM_SETICON, ICON_BIG, (LPARAM)largeIcon);
+
+    largeIcon = (HICON)LoadImageW(NULL, fullIconPath32, IMAGE_ICON, 32, 32, LR_LOADFROMFILE);
+    if (largeIcon == nullptr) {
+        std::cerr << "Failed to load large icon. Error: " << GetLastError() << std::endl;
     }
 }
 
@@ -40,4 +42,15 @@ void ResourceManager::UnloadIcon() {
         DestroyIcon(largeIcon);
         largeIcon = nullptr;
     }
+}
+
+void ResourceManager::SetWindowIcons(GLFWwindow* window) {
+    // Get the HWND from the GLFWwindow* using glfwGetWin32Window
+    HWND hwnd = glfwGetWin32Window(window);
+
+    // Set the small icon for the window using the HWND and the smallIcon variable
+    SendMessage(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)smallIcon);
+
+    // Set the large icon for the window using the HWND and the largeIcon variable
+    SendMessage(hwnd, WM_SETICON, ICON_BIG, (LPARAM)largeIcon);
 }

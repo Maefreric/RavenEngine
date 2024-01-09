@@ -1,76 +1,60 @@
-// workspace.cpp
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include "Workspace.h"
 #include <iostream>
-#include <algorithm>
-#include <GLFW/glfw3.h>
 #include "ComponentCreator.h"
 #include "imgui_internal.h"
 
-bool Workspace::printedMenuData = false;
-
-Workspace::Workspace(float width, float height, float menuBarHeight, GLFWwindow* mainWin, WindowManager& wm)
-    : width(width), height(height), menuBarHeight(menuBarHeight), window(mainWin), componentManager(*this), windowManager(wm) {
+Workspace::Workspace(GLFWwindow* mainWin)
+    : window(mainWin), componentManager(), viewport(window), sceneHierarchyPanel(), currentScene() {
+    std::cout << "Initializing Workspace..." << std::endl;
     ImGuiIO& io = ImGui::GetIO();
-    io.IniFilename = nullptr;  // Disable .ini file saving/loading for window positions and sizes
+    io.IniFilename = nullptr; // Disable .ini file saving/loading
+
+    sceneHierarchyPanel.SetContext(&currentScene); // Set the current scene in the panel
 }
 
 void Workspace::AddComponent(const std::string& componentName) {
-    std::cout << "workspace.AddComponent received: " << componentName << std::endl;
+    std::cout << "Adding component: " << componentName << std::endl;
+    float initialComponentWidth = 100.0f;
+    float initialComponentHeight = 100.0f;
 
-    // Component window creation logic
-    int componentWindowWidth = 200;
-    int componentWindowHeight = 200;
-    GLFWwindow* componentWindow = windowManager.createWindow(componentWindowWidth, componentWindowHeight, componentName.c_str(), true, componentName);
-
-    if (!componentWindow) {
-        std::cerr << "Failed to create window for component: " << componentName << std::endl;
-        return;
-    }
-
-    // Define initial x, y, width, and height for the component
-    int clampedX = 0;
-    int clampedY = 0;
-    int initialComponentWidth = 100;
-    int initialComponentHeight = 100;
-
-    // Here, pass componentWindow instead of 'window' to the ComponentCreator
     auto newComponent = ComponentCreator::CreateComponent(
-        componentName, clampedX, clampedY, initialComponentWidth, initialComponentHeight, *this, componentWindow
+        componentName, 0.0f, 0.0f, initialComponentWidth, initialComponentHeight
     );
 
-    // Check if the component was created successfully
     if (newComponent) {
         componentManager.AddComponent(std::move(newComponent));
-        std::cout << "Component added" << std::endl;
+        std::cout << "Component added successfully." << std::endl;
     } else {
         std::cerr << "Failed to create component: " << componentName << std::endl;
-        windowManager.destroyComponentWindow(componentName); // Destroy the window if component creation failed
     }
 }
 
 void Workspace::Update() {
     componentManager.UpdateComponents();
+    // Update other components as needed, such as the current scene
 }
 
 void Workspace::Render() {
     glClearColor(0.094f, 0.094f, 0.094f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    componentManager.UpdateComponents();  // Make sure components are updated
-    componentManager.RenderComponents();  // Render components within bounds
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    componentManager.RenderImGuiComponents();
+
+    viewport.Render();
+
+    sceneHierarchyPanel.OnImGuiRender(); // Render the scene hierarchy panel
+
+    glDisable(GL_BLEND);
 }
 
-void Workspace::SetSize(float newWidth, float newHeight) {
-    // Implementation of SetSize
-}
-
-std::pair<float, float> Workspace::ClampPosition(float x, float y) const {
-    // Implementation of ClampPosition
-}
-
-ImVec2 Workspace::ClampPositionInBounds(float x, float y, float windowWidth, float windowHeight) const {
-    // Implementation of ClampPositionInBounds
-}
-
-void Workspace::SetCurrentCursor(GLFWcursor* cursor) {
-    // Implementation of SetCurrentCursor
+bool Workspace::isInside(float x, float y) const {
+    std::cout << "Checking if point (" << x << ", " << y << ") is inside the workspace..." << std::endl;
+    // Implement the logic to check if the point (x, y) is inside the workspace
+    // For now, returning true as placeholder
+    return true;
 }

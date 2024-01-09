@@ -1,52 +1,66 @@
-// Main.cpp
-// Standard library headers
-#include <iostream>
+// main.cpp
+#include "glad/glad.h" 
+#include "GLFW/glfw3.h" 
+#include <iostream> 
+#include "Core\AppWindow.h" 
+#include "MenuSystem.h" 
+#include "Workspace.h" 
+#include "ImGuiManager.h" 
+#include "ResourceManager.h" 
 
-// Third-party library headers
-#include "imgui.h"
+int main() { 
+    try { 
+        // Initialize GLFW and create the main window
+        AppWindow appWindow(800, 600, "Raven Engine");
+        GLFWwindow* mainWindow = appWindow.getMainWindow();
 
-// Raven headers
-#include "ImGuiSetup.h"
-#include "MenuSystem.h"
-#include "ResourceManager.h"
-#include "WindowManager.h"
-#include "Workspace.h"
+        // Load and set window icons
+        ResourceManager::LoadIcon(mainWindow, L"../Assets/images/icons/raven16x16.ico", 
+                                              L"../Assets/images/icons/raven32x32.ico");
+        ResourceManager::SetWindowIcons(mainWindow);
 
-int main() {
-    // Initialize WindowManager and create window
-    WindowManager windowManager;
-    GLFWwindow* window = windowManager.createWindow(800, 600, "Raven Engine");
-    windowManager.setWindowProperties(window);
-    ResourceManager::LoadIcon(window, L"../src/Assets/raven16x16.ico", L"../src/Assets/raven32x32.ico");
-    ResourceManager::SetWindowIcons(window);
-    ImGuiSetup::Init(window);
+        // Initialize GLAD
+        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+            throw std::runtime_error("Failed to initialize GLAD");
+        }
 
-    // Create Workspace instance
-    int widthInt, heightInt;
-    glfwGetFramebufferSize(window, &widthInt, &heightInt);
-    float width = static_cast<float>(widthInt);
-    float height = static_cast<float>(heightInt);
-    float menuBarHeight = ImGui::GetFrameHeight();
-    Workspace workspace(width, height - menuBarHeight, menuBarHeight, window, windowManager);
+        // Initialize ImGuiManager for UI handling
+        ImGuiManager::Init(mainWindow);
 
-    MenuSystem menuSystem(workspace);
+        // Create Workspace and MenuSystem
+        Workspace workspace(mainWindow);
+        MenuSystem menuSystem(workspace, mainWindow);
 
-    // Main loop
-    while (!glfwWindowShouldClose(window)) {
-        glfwPollEvents();
-        ImGuiSetup::NewFrame();
-        
-        menuSystem.createMainMenu(window);
-        workspace.Update(); // Update all components
-        workspace.Render(); // Render workspace and all components
+        // Main application loop
+        while (!appWindow.shouldClose()) {
+            // Poll events (keyboard, mouse, etc.)
+            appWindow.pollEvents(); 
 
-        ImGuiSetup::Render();
-        glfwSwapBuffers(window);
+            // Start UI frame
+            ImGuiManager::NewFrame(); 
+
+            // Create dockspace for docking windows
+            ImGui::DockSpaceOverViewport(ImGui::GetMainViewport()); 
+
+            // Create main menu and render workspace
+            menuSystem.createMainMenu();
+            workspace.Render(); 
+            
+            // Render UI and swap buffers
+            ImGuiManager::Render();
+            appWindow.swapBuffers();
+        }
+
+        // Shutdown ImGuiManager and unload icons
+        ImGuiManager::Shutdown();
+        ResourceManager::UnloadIcon();
+    } catch (const std::exception& e) {
+        // Print any errors and exit with failure status
+        std::cerr << "Error: " << e.what() << std::endl;
+        return EXIT_FAILURE;
     }
 
-    ImGuiSetup::Shutdown();
-    ResourceManager::UnloadIcon();
-    windowManager.cleanUp();
-
-    return 0;
+    // Exit with success status
+    return EXIT_SUCCESS;
 }
+// ........................................................................................................................

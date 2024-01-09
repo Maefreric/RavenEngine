@@ -1,37 +1,35 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include <GLFW/glfw3.h>
 #include <string>
-
-class Workspace; // Forward declaration
+#include <imgui.h>
 
 class Component {
-public:
-    Component(float x, float y, float width, float height, Workspace& workspace, GLFWwindow* win);
-    virtual ~Component();
+protected:
+    float x, y, width, height;
+    bool visible;
+    std::string name;
 
-    virtual bool IsVisible() const;
+public:
+    Component() : x(0.0f), y(0.0f), width(0.0f), height(0.0f), visible(false), name("") {}
+    Component(float x, float y, float width, float height, const std::string& name);
+    virtual ~Component() = default;
+
+    virtual void Update() = 0; // Make Update a pure virtual function
+    virtual void RenderImGui() = 0; // Already a pure virtual function for ImGui rendering
+
+    bool IsVisible() const;
     void SetVisibility(bool visible);
 
+    // Getters and setters for position and size if needed
     float GetX() const;
     float GetY() const;
     float GetWidth() const;
     float GetHeight() const;
-    virtual std::string GetName() const;
+    void SetPosition(float x, float y);
+    void SetSize(float width, float height);
 
-    virtual void Update();
-    virtual void Render();
-    virtual void PreRender();
-    virtual void PostRender();
-
-protected:
-    Workspace& workspace;
-
-private:
-    float x, y, width, height;
-    bool visible;
-    GLFWwindow* window;
+    const std::string& GetName() const;
 };
 
 #endif // COMPONENT_H

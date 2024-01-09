@@ -61,6 +61,12 @@
         "forward_list": "cpp",
         "iomanip": "cpp",
         "ratio": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "codecvt": "cpp",
+        "filesystem": "cpp",
+        "array": "cpp",
+        "cstdarg": "cpp",
+        "random": "cpp",
+        "unordered_set": "cpp"
     }
 }

@@ -1,25 +1,22 @@
 #ifndef MENU_SYSTEM_H
 #define MENU_SYSTEM_H
 
-// Add the include path for GLFW
 #include <GLFW/glfw3.h>
-#include <vector> // Include the vector header
 #include "Workspace.h"
+#include <string>
 
 class MenuSystem {
-public:
-    // Constructor
-    MenuSystem(Workspace& workspace);
-
-    // Method to create the main menu bar
-    void createMainMenu(GLFWwindow* window);
-
-    // Declare the OpenFileDialog function as a member function
-    bool OpenFileDialog(char* selectedFile, int bufferSize, GLFWwindow* ownerWindow);
-
 private:
     Workspace& workspace;
-    
+    GLFWwindow* mainWindow;
+    bool fileDialogOpen = false; // State variable to track file dialog status
+
+public:
+    MenuSystem(Workspace& workspace, GLFWwindow* window);
+    void createMainMenu();
+    void createFileMenu();
+    void handleFileMenuItems();
+    void handleFileDialog();
 };
 
 #endif // MENU_SYSTEM_H
