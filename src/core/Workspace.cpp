@@ -11,6 +11,8 @@ Workspace::Workspace(GLFWwindow* mainWin)
     ImGuiIO& io = ImGui::GetIO();
     io.IniFilename = nullptr; // Disable .ini file saving/loading
 
+    console.AddLog("Workspace initialized successfully.");
+
     sceneHierarchyPanel.SetContext(&currentScene); // Set the current scene in the panel
 }
 
@@ -48,6 +50,9 @@ void Workspace::Render() {
     viewport.Render();
 
     sceneHierarchyPanel.OnImGuiRender(); // Render the scene hierarchy panel
+
+    bool consoleWindowOpen = true; // Or manage this state as needed
+    console.Draw("Console", &consoleWindowOpen); // Add this line
 
     glDisable(GL_BLEND);
 }

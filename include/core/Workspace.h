@@ -7,6 +7,7 @@
 #include "../renderer/Viewport.h"
 #include "../utils/SceneHierarchyPanel.h"
 #include "../core/Scene.h"
+#include "../utils/Console.h" // Include the Console header
 
 class Workspace {
 private:
@@ -15,6 +16,7 @@ private:
     Viewport viewport;
     RavenEngine::SceneHierarchyPanel sceneHierarchyPanel;
     RavenEngine::Scene currentScene;
+    RavenEngine::Console console; // Add the Console member
 
 public:
     explicit Workspace(GLFWwindow* window);

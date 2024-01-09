@@ -385,11 +385,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Components\SceneNode.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Renderer.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Viewport.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Primitives\Primitive.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Primitives\Point.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\FileDialog.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ImGuiManager.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\MenuSystem.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\ResourceManager.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\SceneHierarchyPanel.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\Console.cpp" />
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\Inspector.cpp" />
     <ResourceCompile Include="D:\RavenEngineProject\RavenEngine\resources.rc" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp" />
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_opengl3.cpp" />

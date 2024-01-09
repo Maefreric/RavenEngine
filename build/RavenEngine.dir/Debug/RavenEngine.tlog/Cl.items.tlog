@@ -9,11 +9,15 @@ D:\RavenEngineProject\RavenEngine\src\Components\TransformComponent.cpp;D:\Raven
 D:\RavenEngineProject\RavenEngine\src\Components\SceneNode.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\SceneNode.obj
 D:\RavenEngineProject\RavenEngine\src\Renderer\Renderer.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\Renderer.obj
 D:\RavenEngineProject\RavenEngine\src\Renderer\Viewport.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\Viewport.obj
+D:\RavenEngineProject\RavenEngine\src\Renderer\Primitives\Primitive.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\Primitive.obj
+D:\RavenEngineProject\RavenEngine\src\Renderer\Primitives\Point.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\Point.obj
 D:\RavenEngineProject\RavenEngine\src\Utils\FileDialog.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\FileDialog.obj
 D:\RavenEngineProject\RavenEngine\src\Utils\ImGuiManager.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\ImGuiManager.obj
 D:\RavenEngineProject\RavenEngine\src\Utils\MenuSystem.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\MenuSystem.obj
 D:\RavenEngineProject\RavenEngine\src\Utils\ResourceManager.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\ResourceManager.obj
 D:\RavenEngineProject\RavenEngine\src\Utils\SceneHierarchyPanel.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\SceneHierarchyPanel.obj
+D:\RavenEngineProject\RavenEngine\src\Utils\Console.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\Console.obj
+D:\RavenEngineProject\RavenEngine\src\Utils\Inspector.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\Inspector.obj
 D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\imgui_impl_glfw.obj
 D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_opengl3.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\imgui_impl_opengl3.obj
 D:\RavenEngineProject\RavenEngine\libs\imgui\imgui.cpp;D:\RavenEngineProject\RavenEngine\build\RavenEngine.dir\Debug\imgui.obj

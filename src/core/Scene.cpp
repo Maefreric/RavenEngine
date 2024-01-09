@@ -3,7 +3,9 @@
 namespace RavenEngine {
 
 Scene::Scene() {
-    // Constructor logic
+    // Example of adding a node with a unique ID
+    static int nextNodeId = 1;
+    AddNode(std::make_unique<SceneNode>("InitialNode", nextNodeId++));
 }
 
 Scene::~Scene() {
@@ -12,19 +14,16 @@ Scene::~Scene() {
 }
 
 void Scene::AddNode(std::unique_ptr<SceneNode> node) {
-    if (node) {
-        nodes.push_back(std::move(node)); // Use std::move to transfer ownership
-        // Initialize node or any other setup if needed
-    }
+    entityIDs.insert(node->GetID()); // Add this line
+    nodes.push_back(std::move(node));
 }
 
 void Scene::RemoveNode(SceneNode* node) {
-    auto it = std::find_if(nodes.begin(), nodes.end(),
-                           [node](const std::unique_ptr<SceneNode>& n) { return n.get() == node; });
-    if (it != nodes.end()) {
-        // Additional logic before deleting, if needed
-        nodes.erase(it); // unique_ptr will handle deletion
-    }
+    entityIDs.erase(node->GetID()); // Add this line
+    nodes.erase(std::remove_if(nodes.begin(), nodes.end(),
+        [node](const std::unique_ptr<SceneNode>& unique_ptr) {
+            return unique_ptr.get() == node;
+        }), nodes.end());
 }
 
 void Scene::Update(float deltaTime) {
@@ -46,6 +45,14 @@ SceneNode* Scene::FindNode(const std::string& name) const {
 
 const std::vector<std::unique_ptr<SceneNode>>& Scene::GetNodes() const {
     return nodes;
+}
+
+std::vector<SceneNode*> Scene::GetAllNodes() const {
+    std::vector<SceneNode*> allNodes;
+    for (const auto& node : nodes) {
+        allNodes.push_back(node.get());
+    }
+    return allNodes;
 }
 
 void Scene::SetParent(SceneNode* child, SceneNode* parent) {

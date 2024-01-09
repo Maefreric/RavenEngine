@@ -23,11 +23,15 @@ set(PROJECT_SOURCES
     src/Components/SceneNode.cpp
     src/Renderer/Renderer.cpp
     src/Renderer/Viewport.cpp
+    src/Renderer/Primitives/Primitive.cpp
+    src/Renderer/Primitives/Point.cpp
     src/Utils/FileDialog.cpp
     src/Utils/ImGuiManager.cpp
     src/Utils/MenuSystem.cpp
     src/Utils/ResourceManager.cpp
     src/Utils/SceneHierarchyPanel.cpp
+    src/Utils/Console.cpp
+    src/Utils/Inspector.cpp
 )
 
 # Add resources file for Windows

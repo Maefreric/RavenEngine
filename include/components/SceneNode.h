@@ -29,7 +29,7 @@ public:
     Vector3 GetScale() const;
     void SetScale(const Vector3& scale);
 
-    int GetID() const { return id; } // Getter for id
+    int GetID() const;
 
 private:
     std::string name;

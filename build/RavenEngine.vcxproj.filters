@@ -34,6 +34,12 @@
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Viewport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Primitives\Primitive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Renderer\Primitives\Point.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\FileDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -47,6 +53,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\SceneHierarchyPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\Console.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\RavenEngineProject\RavenEngine\src\Utils\Inspector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\RavenEngineProject\RavenEngine\libs\imgui\backends\imgui_impl_glfw.cpp">

@@ -196,12 +196,17 @@ RavenEngine
 │   │   ├── Scene.h
 │   │   └── Workspace.h
 │   ├── Utils
+│   │   ├── Console.h
 │   │   ├── FileDialog.h
 │   │   ├── ImGuiManager.h
+│   │   ├── Inspector.h
 │   │   ├── MenuSystem.h
 │   │   ├── ResourceManager.h
 │   │   └── SceneHierarchyPanel.h
-│   └── Renderer 
+│   └── Renderer
+│       └── Primitives
+│       │   ├── Primitives.h
+│       |   └── Point.h
 │       ├── Renderer.h
 │       ├── Viewport.h
 │       └── ... // other rendering related headers
@@ -222,12 +227,17 @@ RavenEngine
 │   │   ├── Scene.cpp
 │   │   └── Workspace.cpp
 │   ├── Utils
+│   │   ├── Console.cpp
 │   │   ├── FileDialog.cpp
 │   │   ├── ImGuiManager.cpp
+│   │   ├── Inspector.cpp
 │   │   ├── MenuSystem.cpp
 │   │   ├── ResourceManager.cpp
 │   │   └── SceneHierarchyPanel.cpp
 │   └── Renderer
+│       └── Primitives
+│       │   ├── Primitives.cpp
+│       |   └── Point.cpp
 │       ├── Renderer.cpp
 │       ├── Viewport.cpp
 │       └── ... // other rendering related source files

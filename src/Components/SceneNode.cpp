@@ -3,7 +3,7 @@
 
 namespace RavenEngine {
 
-SceneNode::SceneNode(const std::string& name, int id) // Add id parameter to constructor
+SceneNode::SceneNode(const std::string& name, int id)
     : name(name), id(id), position(Vector3()), rotation(Vector3()), scale(Vector3(1.0f, 1.0f, 1.0f)) {
     // Constructor initializes components, transform, etc.
 }
@@ -20,6 +20,7 @@ void SceneNode::Update(float deltaTime) {
         child->Update(deltaTime);
     }
 }
+
 
 void SceneNode::AddChild(std::unique_ptr<SceneNode> child) {
     children.push_back(std::move(child));
@@ -66,6 +67,10 @@ Vector3 SceneNode::GetScale() const {
 
 void SceneNode::SetScale(const Vector3& newScale) {
     scale = newScale;
+}
+
+int SceneNode::GetID() const {
+    return id;
 }
 
 // Implement additional methods for components and transformations here.
